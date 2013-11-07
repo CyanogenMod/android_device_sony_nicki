@@ -110,6 +110,9 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 TARGET_POWERHAL_NO_TOUCH_BOOST := true
 
+# Override healthd HAL
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
+
 BOARD_SEPOLICY_DIRS += \
     device/sony/c1905/sepolicy
 
