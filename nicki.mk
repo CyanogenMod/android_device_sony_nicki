@@ -204,7 +204,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.ssr=false \
     ro.qc.sdk.audio.fluencetype=none \
     lpa.decode=true \
-    lpa.use-stagefright=true
+    lpa.use-stagefright=true \
+    audio.gapless.playback.disable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qmienabled=true \
