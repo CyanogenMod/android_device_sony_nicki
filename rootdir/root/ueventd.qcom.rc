@@ -123,6 +123,7 @@
 
 # wlan
 /dev/wcnss_wlan           0660   system     system
+/dev/wcnss_ctrl           0660   system     system
 
 /dev/pn544                0600   nfc        nfc
 
