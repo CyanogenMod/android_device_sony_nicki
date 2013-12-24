@@ -1,0 +1,6 @@
+#
+# system.prop for c1905
+#
+
+rild.libargs=-d /dev/smd0
+ro.sf.lcd_density=240
