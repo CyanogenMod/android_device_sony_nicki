@@ -39,7 +39,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
 
 # Platform specific overlays
 DEVICE_PACKAGE_OVERLAYS := device/sony/c1905/overlay
@@ -133,7 +135,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     gralloc.msm8960 \
     copybit.msm8960 \
-    libqdMetaData
+    libqdMetaData \
+    memtrack.msm8960
 
 PRODUCT_PACKAGES += \
     extract_elf_ramdisk
