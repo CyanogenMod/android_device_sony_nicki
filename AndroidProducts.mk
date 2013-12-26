@@ -1,3 +1,2 @@
-
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/c1905.mk

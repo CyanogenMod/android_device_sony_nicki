@@ -33,6 +33,8 @@ BOARD_VENDOR_PLATFORM := c1905
 TARGET_CPU_SMP := true
 TARGET_BOOTLOADER_BOARD_NAME := qcom
 
+TARGET_OTA_ASSERT_DEVICE := c1904,c1905,nicki
+
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
