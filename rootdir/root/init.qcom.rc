@@ -347,6 +347,10 @@ on property:bluetooth.hciattach=true
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
 
+service led-deamon /system/bin/led_deamon
+    class main
+    user system
+    group system
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
