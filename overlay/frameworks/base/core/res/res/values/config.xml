@@ -271,4 +271,6 @@
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
+
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
 </resources>
