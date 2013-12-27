@@ -196,13 +196,15 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>1</item>
-        <item>2</item>
-        <item>5</item>
-       <item>10</item>
-        <item>260</item>
-        <item>350</item>
-        <item>355</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>189</item>
+        <item>258</item>
+        <item>300</item>
+        <item>380</item>
+        <item>675</item>
+        <item>1000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -211,14 +213,16 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>34</item>    <!-- 0-1 -->
-        <item>35</item>    <!-- 0-1 -->
-        <item>40</item>    <!-- HY,2 -->
-        <item>45</item>    <!-- HY,5 -->
-        <item>70</item>   <!-- 2-10 -->
-        <item>143</item>   <!-- 11-260 -->
-        <item>191</item>   <!-- 261-350 -->
-        <item>255</item>   <!-- 351+ -->
+        <item>80</item>
+        <item>80</item>
+        <item>140</item>
+        <item>169</item>
+        <item>181</item>
+        <item>193</item>
+        <item>217</item>
+        <item>242</item>
+        <item>248</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Package name(s) containing location provider support.
