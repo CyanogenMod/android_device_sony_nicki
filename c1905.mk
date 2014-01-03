@@ -104,7 +104,6 @@ PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
     libnl_2 \
-    bttest \
     libtinyxml
 
 PRODUCT_PACKAGES += \
@@ -150,14 +149,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
-
-# GPS
-PRODUCT_PACKAGES += \
-    libloc_adapter \
-    libloc_eng \
-    libloc_api_v02 \
-    libgps.utils \
-    gps.msm8960
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
