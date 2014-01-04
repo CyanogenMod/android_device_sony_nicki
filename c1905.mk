@@ -149,9 +149,6 @@ PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.transmitpower=true \
     persist.radio.apm_sim_not_pwdn=1 \
@@ -180,7 +177,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd \
     persist.sys.strictmode.visual=0 \
     persist.sys.strictmode.disable=1 \
-    dalvik.vm.dexopt-data-only=0
+    dalvik.vm.dexopt-data-only=0 \
+    persist.sys.usb.config=mtp,adb
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
