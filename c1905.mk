@@ -99,6 +99,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/bootrec-device:recovery/bootrec-device
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/gps.conf:system/etc/gps.conf
+
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
