@@ -16,9 +16,6 @@
 
 import init.qcom.usb.rc
 
-
-
-
 on early-init
     mkdir /firmware 0771 system system
     symlink /data/tombstones /tombstones
@@ -337,6 +334,11 @@ on boot
     mkdir /data/mpdecision 0770 root system
     start mpdecision
 
+
+    chown system system /sys/class/led/fih_led/control
+    chown system system /sys/class/led/fih_led/info
+    chmod 0600 /sys/class/led/fih_led/control
+    chmod 0600 /sys/class/led/fih_led/info
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
