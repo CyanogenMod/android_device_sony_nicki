@@ -180,7 +180,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd \
     persist.sys.strictmode.visual=0 \
     persist.sys.strictmode.disable=1 \
-    dalvik.vm.dexopt-data-only=0 \
     persist.sys.usb.config=mtp,adb
 
 PRODUCT_AAPT_CONFIG := normal hdpi
