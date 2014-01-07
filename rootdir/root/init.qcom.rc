@@ -21,6 +21,7 @@ on early-init
     symlink /data/tombstones /tombstones
     mount debugfs debugfs /sys/kernel/debug
     mkdir /lta-label 0771 system system
+    chmod 666 /proc/cmdline
 
 on init
     mkdir /persist 0771 system system
@@ -342,6 +343,59 @@ on boot
     mkdir /data/mpdecision 0770 root system
     start mpdecision
 
+    chown system system /sys/class/input/input1/imagesize
+    chown system system /sys/class/input/input1/data
+    chown system system /sys/class/input/input1/rmidev/address
+    chown system system /sys/class/input/input1/rmidev/open
+    chown system system /sys/class/input/input1/rmidev/release
+    chown system system /sys/class/input/input1/reset
+    chown system system /sys/class/input/input1/rmidev/data
+    chown system system /sys/class/input/input1/readconfig
+    chown system system /sys/class/input/input1/0dbutton
+    chown system system /sys/class/input/input1/full_pm_cycle
+    chown system system /sys/class/input/input1/configarea
+    chown system system /sys/class/input/input1/rmidev/length
+    chown system system /sys/class/input/input1/doreflash
+    chown system system /sys/class/input/input1/writeconfig
+
+    chown system system /sys/class/input/input3/delay
+    chown system system /sys/class/input/input3/enable
+    chown system system /sys/class/input/input3/op_mode
+    chown system system /sys/class/input/input3/value
+    chown system system /sys/class/input/input3/rept_xy
+    chown system system /sys/class/input/input3/rept_z
+    chown system system /sys/class/input/input3/test
+    chown system system /sys/class/input/input3/odr
+
+    chown system system /sys/class/input/input4/bandwidth
+    chown system system /sys/class/input/input4/debug
+    chown system system /sys/class/input/input4/delay
+    chown system system /sys/class/input/input4/enable
+    chown system system /sys/class/input/input4/interrupt
+    chown system system /sys/class/input/input4/op_mode
+    chown system system /sys/class/input/input4/mode
+    chown system system /sys/class/input/input4/range
+    chown system system /sys/class/input/input4/reg
+    chown system system /sys/class/input/input4/sensitivity
+    chown system system /sys/class/input/input4/update
+    chown system system /sys/class/input/input4/value
+    chown system system /sys/class/input/input4/rept_xy
+    chown system system /sys/class/input/input4/rept_z
+    chown system system /sys/class/input/input4/test
+    chown system system /sys/class/input/input4/odr
+    chown system system /sys/class/input/input4/pd
+    chown system system /sys/class/input/input4/axi
+    chown system system /sys/class/input/input4/count
+    chown system system /sys/class/input/input4/selftest
+
+    chown system system /sys/class/input/input5/enable
+    chown system system /sys/class/input/input5/value
+
+    chown system system /dev/input/event1
+    chown system system /dev/input/event2
+    chown system system /dev/input/event3
+    chown system system /dev/input/event4
+    chown system system /dev/input/event5
 
     chown system system /sys/class/led/fih_led/control
     chown system system /sys/class/led/fih_led/info
