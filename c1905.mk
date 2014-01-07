@@ -18,8 +18,6 @@ $(call inherit-product, vendor/sony/c1905/c1905-vendor.mk)
 $(call inherit-product, device/sony/common/resources.mk)
 $(call inherit-product, device/sony/qcom-common/qcom-common.mk)
 
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-hwui-memory.mk)
 
