@@ -273,4 +273,6 @@
     <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
 
     <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <bool name="config_enableTorch">true</bool>
 </resources>
