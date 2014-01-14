@@ -19,7 +19,6 @@ $(call inherit-product, device/sony/common/resources.mk)
 $(call inherit-product, device/sony/qcom-common/qcom-common.mk)
 
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-hwui-memory.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -100,6 +99,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/gps.conf:system/etc/gps.conf
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/root/sbin/wait4tad_static:root/sbin/wait4tad_static \
+    $(LOCAL_PATH)/rootdir/root/sbin/tad_static:root/sbin/tad_static
+
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
@@ -175,10 +178,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    ro.qualcomm.bt.hci_transport=smd \
-    persist.sys.strictmode.visual=0 \
-    persist.sys.strictmode.disable=1 \
-    persist.sys.usb.config=mtp,adb
+    ro.qualcomm.bt.hci_transport=smd
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
+
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
