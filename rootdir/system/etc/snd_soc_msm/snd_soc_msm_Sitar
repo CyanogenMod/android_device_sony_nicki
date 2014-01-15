@@ -3246,7 +3246,7 @@ SectionDevice
 		'HPHR Volume':1:0
 	EndSequence
 
-	ACDBID	64:1
+	ACDBID	10:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3270,9 +3270,9 @@ SectionDevice
 		'LINEOUT2 Volume':1:100
 		'RX1 MIX1 INP1':0:RX1
 		'RX1 Digital Volume':1:78
-		'PMIC SPK Gain':0:POS_10_DB
-		'RX2 Digital Volume':1:67
-		'RX3 Digital Volume':1:67
+		'PMIC SPK Gain':0:POS_20_DB
+		'RX2 Digital Volume':1:68
+		'RX3 Digital Volume':1:68
 	EndSequence
 
 	DisableSequence
@@ -3773,7 +3773,7 @@ SectionDevice
 		'ADC1 Volume':1:0
 	EndSequence
 
-	ACDBID	11:2
+	ACDBID	4:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
