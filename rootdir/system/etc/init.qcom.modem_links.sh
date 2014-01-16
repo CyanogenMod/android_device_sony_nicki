@@ -31,6 +31,14 @@
 # No path is set up at this point so we have to do it here.
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
+mount_needed=false;
+
+if [ ! -f /system/etc/boot_fixup ];then
+# This should be the first command
+# remount system as read-write.
+  mount -o rw,remount,barrier=1 /system
+  mount_needed=true;
+fi
 
 # Check for images and set up symlinks
 cd /firmware/image
@@ -38,7 +46,7 @@ cd /firmware/image
 # Get the list of files in /firmware/image
 # for which sym links have to be created
 
-fwfiles=`ls modem* q6* wcnss*`
+fwfiles=`ls modem* q6* wcnss* dsps* tzapps* gss*`
 modem_fwfiles=`ls modem_fw.mdt`
 
 # Check if the links with similar names
@@ -142,11 +150,47 @@ case $linksNeeded in
             log -p w -t PIL 8960 device but no wcnss image found;;
       esac
 
+      case `ls dsps.mdt 2>/dev/null` in
+         dsps.mdt)
+            for imgfile in dsps*; do
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+            done
+            break;;
+         *)
+            log -p w -t PIL 8960 device but no dsps image found;;
+      esac
+
+      case `ls tzapps.mdt 2>/dev/null` in
+         tzapps.mdt)
+            for imgfile in tzapps*; do
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+            done
+            break;;
+         *)
+            log -p w -t PIL 8960 device but no tzapps image found;;
+      esac
+
+      case `ls gss.mdt 2>/dev/null` in
+         gss.mdt)
+            for imgfile in gss*; do
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+            done
+            break;;
+         *)
+            log -p w -t No gss image found;;
+      esac
       break;;
 
    *)
       # Nothing to do. No links needed
       break;;
 esac
+touch /system/etc/boot_fixup
+
+if $mount_needed ;then
+# This should be the last command
+# remount system as read-only.
+  mount -o ro,remount,barrier=1 /system
+fi
 
 cd /
