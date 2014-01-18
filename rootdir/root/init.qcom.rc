@@ -122,6 +122,8 @@ on post-fs-data
 
     mkdir /data/audio/ 0770 media audio
 
+    chown system compass /data/misc/sensor
+
     setprop vold.post_fs_data_done 1
 
 on early-boot
@@ -410,7 +412,9 @@ service led-deamon /system/bin/led_deamon
     group system
 
 service sensord /system/bin/sensord
-    class late_start
+    user system
+    group compass misc input
+    class core
     oneshot
 
 on property:init.svc.wpa_supplicant=stopped
