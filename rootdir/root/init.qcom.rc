@@ -63,10 +63,9 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
-    # FOTA support
-    class_start trimarea
+     # TA support
+    start tad_static
     exec /sbin/wait4tad_static
-    exec /sbin/fota-ua c
     exec /system/bin/taimport
 
 on post-fs
@@ -113,10 +112,6 @@ on post-fs-data
     mkdir /data/misc/location/mq 0770 gps gps
     mkdir /data/misc/location/xtwifi 0770 gps gps
 
-    #Create directory for FOTA
-    mkdir /data/fota 0771
-    chown system system /data/fota
-
     #Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
 
@@ -136,7 +131,6 @@ service modem-sh /system/bin/sh /system/etc/init.qcom.modem_links.sh
     oneshot
 
 on boot
-
     exec /system/bin/btnvtool -O
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -153,12 +147,12 @@ on boot
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
-     mkdir /data/tombstones 0771 system system
-     mkdir /tombstones/modem 0771 system system
-     mkdir /tombstones/lpass 0771 system system
-     mkdir /tombstones/wcnss 0771 system system
-     mkdir /tombstones/dsps 0771 system system
-     mkdir /tombstones/mdm 0771 system system
+    mkdir /data/tombstones 0771 system system
+    mkdir /tombstones/modem 0771 system system
+    mkdir /tombstones/lpass 0771 system system
+    mkdir /tombstones/wcnss 0771 system system
+    mkdir /tombstones/dsps 0771 system system
+    mkdir /tombstones/mdm 0771 system system
 
     write /sys/module/subsystem_restart/parameters/restart_level 1
     write /sys/module/subsystem_restart/parameters/max_restarts 8
