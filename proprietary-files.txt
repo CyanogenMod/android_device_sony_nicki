@@ -29,7 +29,6 @@ bin/ta_qmi_service
 bin/qmuxd
 bin/updatemiscta
 bin/rmt_storage
-bin/qrngd
 bin/rild
 bin/thermald
 bin/qseecomd
