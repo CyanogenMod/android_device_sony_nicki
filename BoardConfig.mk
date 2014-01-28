@@ -112,6 +112,7 @@ BOARD_SEPOLICY_UNION += \
     domain.te \
     drmserver.te \
     file.te \
+    healthd.te \
     kickstart.te \
     init.te \
     mac_update.te \
