@@ -97,3 +97,34 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/c1905/custombootimg.mk
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/c1905/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/sony/c1905/recovery/graphics.c
+
+BOARD_SEPOLICY_DIRS += \
+    device/sony/c1905/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    property_contexts \
+    te_macros \
+    bluetooth_loader.te \
+    bridge.te \
+    camera.te \
+    device.te \
+    dhcp.te \
+    domain.te \
+    drmserver.te \
+    file.te \
+    kickstart.te \
+    init.te \
+    mac_update.te \
+    mediaserver.te \
+    mpdecision.te \
+    netmgrd.te \
+    qmux.te \
+    rild.te \
+    rmt.te \
+    surfaceflinger.te \
+    system.te \
+    tee.te \
+    thermald.te \
+    ueventd.te \
+    wpa_supplicant.te
