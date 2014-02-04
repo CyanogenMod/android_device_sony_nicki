@@ -52,7 +52,6 @@ lib/libtime_genoff.so
 lib/libqcci_legacy.so
 lib/libchromatix_s5k4e1_2nd_default_video.so
 lib/libmorpho_hdr_checker.so
-lib/libmmcamera_interface.so
 lib/libidl.so
 lib/libqdi.so
 lib/libchromatix_s5k4e1_2nd_preview_1.so
@@ -69,7 +68,6 @@ lib/libchromatix_s5k4e1_default_video.so
 lib/libmmcamera_hdr_lib.so
 lib/libmorpho_posture_detect.so
 lib/libmiscta.so
-lib/libmmjpeg_interface.so
 lib/libcredential-manager-service.so
 lib/libgemini.so
 lib/libdrmtime.so
