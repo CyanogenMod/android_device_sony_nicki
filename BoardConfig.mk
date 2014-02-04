@@ -14,13 +14,13 @@
 
 # Product-specific compile-time definitions.
 
--include vendor/sony/c1905/BoardConfigVendor.mk
+include vendor/sony/c1905/BoardConfigVendor.mk
 
 # inherit from Sony common
--include device/sony/common/BoardConfigCommon.mk
+include device/sony/common/BoardConfigCommon.mk
 
 # inherit from qcom-common
--include device/sony/qcom-common/BoardConfigCommon.mk
+include device/sony/qcom-common/BoardConfigCommon.mk
 
 USE_CAMERA_STUB := false
 
