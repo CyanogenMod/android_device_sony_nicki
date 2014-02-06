@@ -596,3 +596,7 @@ service qrngd /system/bin/qrngd -f
     user root
     group root
 
+service bbset /system/bin/sh /system/etc/init.qcom.baseband.sh
+     class late_start
+     oneshot
+
