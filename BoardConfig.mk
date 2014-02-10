@@ -101,6 +101,11 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/c1905/custombootimg.mk
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/c1905/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/sony/c1905/recovery/graphics.c
 
+TARGET_NO_RPC := true
+TARGET_PROVIDES_GPS_LOC_API := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_HAVE_NEW_QC_GPS := true
+
 BOARD_SEPOLICY_DIRS += \
     device/sony/c1905/sepolicy
 

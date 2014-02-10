@@ -85,11 +85,8 @@ lib/libmmstillomx.so
 lib/libI420colorconvert.so
 lib/libmmcamera_wavelet_lib.so
 lib/libnetmgr.so
-lib/libloc_adapter.so
-lib/libgps.utils.so
 lib/libqmiservices.so
 lib/libdivxdrmdecrypt.so
-lib/libloc_eng.so
 lib/libbtnv.so
 lib/libmmcamera_image_stab.so
 lib/libqmi_common_so.so
@@ -103,7 +100,6 @@ lib/libadsprpc.so
 lib/libqmi_csi.so
 lib/librmp.so
 lib/hw/sensors.default.so
-lib/hw/gps.default.so
 lib/hw/camera.msm8960.so:lib/hw/vendor-camera.msm8960.so
 lib/hw/nfc.msm8960.so
 lib/hw/lights.msm8960.so:lib/hw/vendor-lights.msm8960.so
@@ -113,6 +109,7 @@ lib/libkeyctrl.so
 lib/libmmcamera_faceproc.so
 lib/libmm-audio-resampler.so
 lib/libmm-abl.so
+lib/libgeofence.so
 lib/libloc_api_v02.so
 lib/lib_dlb_msd.so
 lib/libta.so

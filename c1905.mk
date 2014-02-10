@@ -98,9 +98,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/bootrec-device:recovery/bootrec-device
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/etc/gps.conf:system/etc/gps.conf
-
-PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/sbin/wait4tad_static:root/sbin/wait4tad_static \
     $(LOCAL_PATH)/rootdir/root/sbin/tad_static:root/sbin/tad_static
 
@@ -153,6 +150,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
+
+PRODUCT_PACKAGES += \
+    gps.msm8960 \
+    gps.conf \
+    sap.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.transmitpower=true \
