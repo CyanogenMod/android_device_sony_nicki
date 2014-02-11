@@ -92,13 +92,7 @@
     <!-- The restoring is handled by modem if it is true -->
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
 
-    <!-- Enables SIP on WIFI only -->
-    <bool name="config_sip_wifi_only">false</bool>
-
     <bool name="config_syncstorageengine_masterSyncAutomatically">false</bool>
-
-    <!-- Enable the electron beam -->
-    <bool name="config_animateScreenLights">true</bool>
 
     <!-- Remote server that can provide NTP responses. -->
     <string translatable="false" name="config_ntpServer">ntp.nict.jp</string>
@@ -265,9 +259,6 @@
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
-
-    <!-- Boolean indicating whether the wifi chipset has background scan support -->
-    <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
 
     <bool name="config_useDevInputEventForAudioJack">true</bool>
 
