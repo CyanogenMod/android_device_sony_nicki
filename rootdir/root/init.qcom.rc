@@ -381,11 +381,22 @@ on boot
     chown system system /dev/input/event3
     chown system system /dev/input/event4
     chown system system /dev/input/event5
+    chown system system /data/misc/sensor/profile_calib_a
+    chown system system /data/misc/sensor/profile_calib_m
+    chown system system /data/misc/sensor/sensord.log
+    chmod 0660 /data/misc/sensor/sensord.log
+    chmod 0660 /data/misc/sensor/profile_calib_a
+    chmod 0660 /data/misc/sensor/profile_calib_m
 
     chown system system /sys/class/led/fih_led/control
     chown system system /sys/class/led/fih_led/info
     chmod 0600 /sys/class/led/fih_led/control
     chmod 0600 /sys/class/led/fih_led/info
+
+    chown system system /sys/class/touch/rmi4/control
+    chown system system /sys/class/touch/rmi4/info
+
+    chown system system /dev/rmi0
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
@@ -558,6 +569,7 @@ service charger /charger
     class charger
 
 service ta_qmi_service /system/bin/ta_qmi_service
+    class late_start
     user root
     disabled
 
