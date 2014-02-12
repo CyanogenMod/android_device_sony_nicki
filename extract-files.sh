@@ -6,3 +6,5 @@ export BOARDCONFIGVENDOR=true
 ../common/extract-files.sh $@
 
 ../common/setup-makefiles.sh
+
+./setup-makefiles.sh

@@ -41,6 +41,7 @@ bin/netmgrd
 bin/efsks
 bin/mpdecision
 bin/led_deamon
+bin/time_daemon
 vendor/firmware/libpn544_fw.so
 vendor/lib/libdiag.so
 lib/libchromatix_s5k4e1_default_video_1.so

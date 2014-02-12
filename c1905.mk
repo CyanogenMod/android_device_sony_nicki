@@ -181,7 +181,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    ro.qualcomm.bt.hci_transport=smd
+    ro.qualcomm.bt.hci_transport=smd \
+    persist.timed.enable=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -193,6 +194,8 @@ PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 PRODUCT_PACKAGES += Torch
+
+PRODUCT_PACKAGES += libtime_genoff
 
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
