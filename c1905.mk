@@ -162,13 +162,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
-    ro.opengles.version=196608 \
-    af.resampler.quality=255 \
-    persist.audio.fluence.mode=endfire \
-    persist.audio.vr.enable=false \
-    persist.audio.handset.mic=digital \
-    lpa.decode=true \
-    lpa.use-stagefright=true \
     ro.gps.agps_provider=customized \
     persist.gps.qmienabled=true \
     persist.fuse_sdcard=true \
@@ -178,11 +171,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd \
     persist.timed.enable=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.audio.init=complete \
+    af.resampler.quality=255 \
+    persist.audio.fluence.mode=endfire \
+    persist.audio.vr.enable=false \
+    persist.audio.handset.mic=analog \
+    persist.audio.lowlatency.rec=false \
+    media.aac_51_output_enabled=true \
+    ro.qc.sdk.audio.ssr=false \
+    ro.qc.sdk.audio.fluencetype=none \
+    lpa.decode=true \
+    lpa.use-stagefright=true
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
+
+PRODUCT_GMS_CLIENTID_BASE ?= android-sonyericsson
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
