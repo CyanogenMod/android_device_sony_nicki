@@ -108,6 +108,8 @@ BOARD_HAVE_NEW_QC_GPS := true
 
 BOARD_USES_QC_TIME_SERVICES := true
 
+TARGET_POWERHAL_NO_TOUCH_BOOST := true
+
 BOARD_SEPOLICY_DIRS += \
     device/sony/c1905/sepolicy
 
