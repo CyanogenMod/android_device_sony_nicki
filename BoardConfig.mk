@@ -52,7 +52,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_MAX_PARTITIONS := 27
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-TARGET_KERNEL_SOURCE := kernel/sony/nicki
+TARGET_KERNEL_SOURCE := kernel/sony/msm8x27
 TARGET_KERNEL_CONFIG := cyanogenmod_nicki_defconfig
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
