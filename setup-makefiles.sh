@@ -1,4 +1,4 @@
-OUTDIR=vendor/sony/c1905
+OUTDIR=vendor/sony/nicki
 
 (cat << EOF) > ../../../$OUTDIR/Android.mk
 # Copyright (C) 2013 The CyanogenMod Project

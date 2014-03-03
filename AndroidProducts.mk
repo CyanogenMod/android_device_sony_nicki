@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/c1905.mk
+    $(LOCAL_DIR)/nicki.mk
