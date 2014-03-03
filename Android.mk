@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(BOARD_VENDOR_PLATFORM),c1905)
+ifeq ($(BOARD_VENDOR_PLATFORM),nicki)
     include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
       $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9310; \

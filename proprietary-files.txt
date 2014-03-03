@@ -1,3 +1,6 @@
+etc/firmware/wlan/prima/WCNSS_cfg.dat
+etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 etc/firmware/tzlibasb.flist
 etc/firmware/vidc.b02
 etc/firmware/tzlibasb.b02

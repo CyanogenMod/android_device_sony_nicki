@@ -14,7 +14,7 @@
 
 # Product-specific compile-time definitions.
 
-include vendor/sony/c1905/BoardConfigVendor.mk
+include vendor/sony/nicki/BoardConfigVendor.mk
 
 # inherit from Sony common
 include device/sony/common/BoardConfigCommon.mk
@@ -26,12 +26,12 @@ USE_CAMERA_STUB := false
 
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_CPU_VARIANT := krait
-BOARD_VENDOR_PLATFORM := c1905
+BOARD_VENDOR_PLATFORM := nicki
 TARGET_BOOTLOADER_BOARD_NAME := qcom
 
 TARGET_OTA_ASSERT_DEVICE := c1904,c1905,nicki
 
-BOARD_RIL_CLASS := ../../../device/sony/c1905/ril/
+BOARD_RIL_CLASS := ../../../device/sony/nicki/ril/
 
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
@@ -64,7 +64,7 @@ TARGET_USES_QCOM_BSP := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/c1905/include
+TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
 
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
@@ -91,15 +91,15 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/c1905/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
-TARGET_RECOVERY_FSTAB = device/sony/c1905/rootdir/root/fstab.qcom
+TARGET_RECOVERY_FSTAB = device/sony/nicki/rootdir/root/fstab.qcom
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_CUSTOM_BOOTIMG_MK := device/sony/c1905/custombootimg.mk
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/c1905/recovery/recovery_keys.c
-BOARD_CUSTOM_GRAPHICS := ../../../device/sony/c1905/recovery/graphics.c
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/nicki/recovery/recovery_keys.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/sony/nicki/recovery/graphics.c
 
 TARGET_NO_RPC := true
 TARGET_PROVIDES_GPS_LOC_API := true
@@ -114,7 +114,7 @@ TARGET_POWERHAL_NO_TOUCH_BOOST := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
 BOARD_SEPOLICY_DIRS += \
-    device/sony/c1905/sepolicy
+    device/sony/nicki/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \

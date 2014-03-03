@@ -4,7 +4,7 @@ uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk.cpio
 $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 	zcat $< > $@
 
-INITSH := device/sony/c1905/combinedroot/init.sh
+INITSH := device/sony/nicki/combinedroot/init.sh
 BOOTREC_DEVICE := $(PRODUCT_OUT)/recovery/bootrec-device
 
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img

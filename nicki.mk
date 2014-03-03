@@ -14,7 +14,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/sony/c1905/c1905-vendor.mk)
+$(call inherit-product, vendor/sony/nicki/nicki-vendor.mk)
 $(call inherit-product, device/sony/common/resources.mk)
 $(call inherit-product, device/sony/qcom-common/qcom-common.mk)
 
@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 # Platform specific overlays
-DEVICE_PACKAGE_OVERLAYS := device/sony/c1905/overlay
+DEVICE_PACKAGE_OVERLAYS := device/sony/nicki/overlay
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -79,11 +79,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prima_fw/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/prima_fw/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/prima_fw/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-
-PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
     $(LOCAL_PATH)/recovery/remap.sh:recovery/root/sbin/remap.sh
 
@@ -108,9 +103,9 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/sony/c1905/rootdir/system/etc/nfcee_access.xml
+    NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/sony/c1905/rootdir/system/etc/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access_debug.xml
 endif
 
 PRODUCT_COPY_FILES += \
@@ -189,7 +184,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0
 
-PRODUCT_GMS_CLIENTID_BASE ?= android-sonyericsson
+PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -200,10 +195,5 @@ PRODUCT_PACKAGES += libtime_genoff
 
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := c1905
-PRODUCT_DEVICE := c1905
-PRODUCT_MODEL := c1905
-PRODUCT_BRAND := Sony
-PRODUCT_MANUFACTURER := Sony
 PRODUCT_CHARACTERISTICS := phone
 

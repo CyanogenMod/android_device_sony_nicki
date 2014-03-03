@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo cm_c1905-eng
-add_lunch_combo cm_c1905-userdebug
+add_lunch_combo cm_nicki-eng
+add_lunch_combo cm_nicki-userdebug
