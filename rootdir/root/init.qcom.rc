@@ -490,9 +490,6 @@ on property:vold.decrypt=trigger_restart_framework
 
 service charger /charger
     class charger
-    user root
-    group root
-    oneshot
 
 on charger
     write /sys/class/android_usb/android0/enable 0
