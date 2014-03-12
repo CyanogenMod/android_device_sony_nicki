@@ -87,9 +87,6 @@
 
     <bool name="config_syncstorageengine_masterSyncAutomatically">false</bool>
 
-    <!-- Remote server that can provide NTP responses. -->
-    <string translatable="false" name="config_ntpServer">ntp.nict.jp</string>
-
     <!-- National language single shift tables to enable for SMS encoding.
          Decoding is always enabled. 3GPP TS 23.038 states that this feature
          should not be enabled until a formal request is issued by the relevant
@@ -227,9 +224,6 @@
         <item>com.android.location.fused</item>
         <item>com.google.android.location</item>
     </string-array>
-
-    <!-- Timeout to wait for NTP server response. -->
-    <integer name="config_ntpTimeout">8000</integer>
 
     <!-- Safe headphone volume index. When music stream volume is below this index
     the SPL on headphone output is compliant to EN 60950 requirements for portable music
