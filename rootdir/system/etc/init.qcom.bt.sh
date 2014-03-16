@@ -24,17 +24,13 @@ failed ()
 # BTS_DEVICE, BTS_TYPE, BTS_BAUD, and BTS_ADDRESS.
 
 POWER_CLASS=`getprop qcom.bt.dev_power_class`
+LE_POWER_CLASS=`getprop qcom.bt.le_dev_pwr_class`
 TRANSPORT=`getprop ro.qualcomm.bt.hci_transport`
 
 #find the transport type
 logi "Transport : $TRANSPORT"
 
-#load bd addr
-BDADDR=`/system/bin/cat /data/etc/bluetooth_bdaddr`
-
 setprop bluetooth.status off
-
-logi "BDADDR: $BDADDR"
 
 case $POWER_CLASS in
   1) PWR_CLASS="-p 0" ;
@@ -48,18 +44,25 @@ case $POWER_CLASS in
      logi "Power Class: To override, Before turning BT ON; setprop qcom.bt.dev_power_class <1 or 2 or 3>";;
 esac
 
-if [$BDADDR == ""]
-then
-logwrapper /system/bin/hci_qcomm_init -e $PWR_CLASS -vv
-else
-logwrapper /system/bin/hci_qcomm_init --enable-clock-sharing -b $BDADDR -e $PWR_CLASS -vv
-fi
+case $LE_POWER_CLASS in
+  1) LE_PWR_CLASS="-P 0" ;
+     logi "LE Power Class: 1";;
+  2) LE_PWR_CLASS="-P 1" ;
+     logi "LE Power Class: 2";;
+  3) LE_PWR_CLASS="-P 2" ;
+     logi "LE Power Class: CUSTOM";;
+  *) LE_PWR_CLASS="-P 1";
+     logi "LE Power Class: Ignored. Default(2) used (1-CLASS1/2-CLASS2/3-CUSTOM)";
+     logi "LE Power Class: To override, Before turning BT ON; setprop qcom.bt.le_dev_pwr_class <1 or 2 or 3>";;
+esac
 
-case $? in
-  0) logi "Bluetooth QSoC firmware download succeeded, $PWR_CLASS $BDADDR $TRANSPORT";;
-  *) failed "Bluetooth QSoC firmware download failed" $?;
+eval $(/system/bin/hci_qcomm_init -e $PWR_CLASS $LE_PWR_CLASS && echo "exit_code_hci_qcomm_init=0" || echo "exit_code_hci_qcomm_init=1")
+
+case $exit_code_hci_qcomm_init in
+  0) logi "Bluetooth QSoC firmware download succeeded, $BTS_DEVICE $BTS_TYPE $BTS_BAUD $BTS_ADDRESS";;
+  *) failed "Bluetooth QSoC firmware download failed" $exit_code_hci_qcomm_init;
      setprop bluetooth.status off;
-     exit $?;;
+     exit $exit_code_hci_qcomm_init;;
 esac
 
 setprop bluetooth.status on
