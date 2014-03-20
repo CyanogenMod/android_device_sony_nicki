@@ -152,7 +152,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     telephony.lteOnCdmaDevice=0 \
-    ro.use_data_netmgrd=true
+    ro.use_data_netmgrd=true \
+    ro.telephony.call_ring.multiple=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
