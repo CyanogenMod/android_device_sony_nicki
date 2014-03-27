@@ -31,8 +31,6 @@ TARGET_BOOTLOADER_BOARD_NAME := qcom
 
 TARGET_OTA_ASSERT_DEVICE := c1904,c1905,nicki
 
-BOARD_RIL_CLASS := ../../../device/sony/nicki/ril/
-
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
@@ -78,6 +76,7 @@ COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
 
 # Wlan
 BOARD_HAS_QCOM_WLAN              := true
+BOARD_HAS_QCOM_WLAN_SDK          := true
 BOARD_WLAN_DEVICE                := qcwcn
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
