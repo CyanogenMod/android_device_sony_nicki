@@ -1,4 +1,4 @@
-/* Copyright (c) 2009-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009-2013, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -31,9 +31,56 @@
 #define LOG_TAG "LocSvc_eng"
 
 #include <loc_eng.h>
-#include <loc_eng_msg.h>
+#include <MsgTask.h>
 #include "log_util.h"
+#include "platform_lib_includes.h"
 
+using namespace loc_core;
+
+struct LocEngRequestXtraServer : public LocMsg {
+    LocEngAdapter* mAdapter;
+    inline LocEngRequestXtraServer(LocEngAdapter* adapter) :
+        LocMsg(), mAdapter(adapter)
+    {
+        locallog();
+    }
+    inline virtual void proc() const {
+        mAdapter->requestXtraServer();
+    }
+    inline void locallog() const {
+        LOC_LOGV("LocEngRequestXtraServer");
+    }
+    inline virtual void log() const {
+        locallog();
+    }
+};
+
+struct LocEngInjectXtraData : public LocMsg {
+    LocEngAdapter* mAdapter;
+    char* mData;
+    const int mLen;
+    inline LocEngInjectXtraData(LocEngAdapter* adapter,
+                                char* data, int len):
+        LocMsg(), mAdapter(adapter),
+        mData(new char[len]), mLen(len)
+    {
+        memcpy((void*)mData, (void*)data, len);
+        locallog();
+    }
+    inline ~LocEngInjectXtraData()
+    {
+        delete[] mData;
+    }
+    inline virtual void proc() const {
+        mAdapter->setXtraData(mData, mLen);
+    }
+    inline  void locallog() const {
+        LOC_LOGV("length: %d\n  data: %p", mLen, mData);
+    }
+    inline virtual void log() const {
+        locallog();
+    }
+};
 
 /*===========================================================================
 FUNCTION    loc_eng_xtra_init
@@ -52,17 +99,18 @@ SIDE EFFECTS
 
 ===========================================================================*/
 int loc_eng_xtra_init (loc_eng_data_s_type &loc_eng_data,
-                       GpsXtraCallbacks* callbacks)
+                       GpsXtraExtCallbacks* callbacks)
 {
     int ret_val = -1;
     loc_eng_xtra_data_s_type *xtra_module_data_ptr;
 
     if(callbacks == NULL) {
         LOC_LOGE("loc_eng_xtra_init: failed, cb is NULL");
-    }
-    else {
+    } else {
         xtra_module_data_ptr = &loc_eng_data.xtra_module_data;
         xtra_module_data_ptr->download_request_cb = callbacks->download_request_cb;
+        xtra_module_data_ptr->report_xtra_server_cb = callbacks->report_xtra_server_cb;
+
         ret_val = 0;
     }
     return ret_val;
@@ -88,9 +136,32 @@ SIDE EFFECTS
 int loc_eng_xtra_inject_data(loc_eng_data_s_type &loc_eng_data,
                              char* data, int length)
 {
-    loc_eng_msg_inject_xtra_data *msg(new loc_eng_msg_inject_xtra_data(&loc_eng_data,
-                                                                       data, length));
-    loc_eng_msg_sender(&loc_eng_data, msg);
+    LocEngAdapter* adapter = loc_eng_data.adapter;
+    adapter->sendMsg(new LocEngInjectXtraData(adapter, data, length));
 
     return 0;
+}
+/*===========================================================================
+FUNCTION    loc_eng_xtra_request_server
+
+DESCRIPTION
+   Request the Xtra server url from the modem
+
+DEPENDENCIES
+   N/A
+
+RETURN VALUE
+   length of server string
+
+SIDE EFFECTS
+   N/A
+
+===========================================================================*/
+int loc_eng_xtra_request_server(loc_eng_data_s_type &loc_eng_data)
+{
+    LocEngAdapter* adapter = loc_eng_data.adapter;
+    adapter->sendMsg(new LocEngRequestXtraServer(adapter));
+
+    return 0;
+
 }

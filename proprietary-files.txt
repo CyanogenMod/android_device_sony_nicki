@@ -1,5 +1,6 @@
 bin/btnvtool
 bin/efsks
+bin/gsiff_daemon
 bin/hci_qcomm_init
 bin/irsc_util
 bin/ks
@@ -75,7 +76,6 @@ lib/libdsi_netctrl.so
 lib/libdsutils.so
 lib/libExtendedExtractor.so
 lib/libgemini.so
-lib/libgeofence.so
 lib/lib_get_secure_mode.so
 lib/libI420colorconvert.so
 lib/libidl.so
@@ -84,6 +84,7 @@ lib/libimage-omx-common.so
 lib/libkeyctrl.so
 lib/liblights-core.so
 lib/libloc_api_v02.so
+lib/libloc_ds_api.so
 lib/libmercury.so
 lib/libmiscta.so
 lib/libmm-abl.so
@@ -135,14 +136,21 @@ lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libril.so
 lib/librmp.so
+lib/libsensor1.so
 lib/libSHIMDivxDrm.so
 lib/libsurround_proc.so
 lib/libta.so
 lib/libtzplayready.so
 vendor/firmware/libpn544_fw.so
 vendor/lib/libdiag.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
+vendor/lib/libquipc_os_api.so
 vendor/lib/libtime_genoff.so
+vendor/lib/libulp2.so

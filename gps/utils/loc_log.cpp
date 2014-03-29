@@ -34,8 +34,13 @@
 #include <sys/time.h>
 #include "loc_log.h"
 #include "msg_q.h"
-
+#ifdef USE_GLIB
+#include <time.h>
+#endif /* USE_GLIB  */
 #include "log_util.h"
+#include "platform_lib_includes.h"
+
+#define  BUFFER_SIZE  120
 
 // Logging Improvements
 const char *loc_logger_boolStr[]={"False","True"};
@@ -98,6 +103,52 @@ const char* loc_get_msg_q_status(int status)
 const char* log_succ_fail_string(int is_succ)
 {
    return is_succ? "successful" : "failed";
+}
+
+//Target names
+loc_name_val_s_type target_name[] =
+{
+    NAME_VAL(GNSS_NONE),
+    NAME_VAL(GNSS_MSM),
+    NAME_VAL(GNSS_GSS),
+    NAME_VAL(GNSS_MDM),
+    NAME_VAL(GNSS_QCA1530),
+    NAME_VAL(GNSS_UNKNOWN)
+};
+
+static int target_name_num = sizeof(target_name)/sizeof(loc_name_val_s_type);
+
+/*===========================================================================
+
+FUNCTION loc_get_target_name
+
+DESCRIPTION
+   Returns pointer to a string that contains name of the target
+
+   XX:XX:XX.000\0
+
+RETURN VALUE
+   The target name string
+
+===========================================================================*/
+const char *loc_get_target_name(unsigned int target)
+{
+    int index = 0;
+    static char ret[BUFFER_SIZE];
+
+    index =  getTargetGnssType(target);
+    if( index >= target_name_num || index < 0)
+        index = target_name_num - 1;
+
+    if( (target & HAS_SSC) == HAS_SSC ) {
+        snprintf(ret, sizeof(ret), " %s with SSC",
+           loc_get_name_from_val(target_name, target_name_num, (long)index) );
+    }
+    else {
+       snprintf(ret, sizeof(ret), " %s  without SSC",
+           loc_get_name_from_val(target_name, target_name_num, (long)index) );
+    }
+    return ret;
 }
 
 

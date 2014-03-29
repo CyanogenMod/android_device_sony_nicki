@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -39,6 +39,10 @@
 #include <time.h>
 #include <loc_cfg.h>
 #include <log_util.h>
+#ifdef USE_GLIB
+#include <glib.h>
+#endif
+#include "platform_lib_includes.h"
 
 /*=============================================================================
  *
@@ -47,7 +51,7 @@
  *============================================================================*/
 
 /* Parameter data */
-static uint8_t DEBUG_LEVEL = 3;
+static uint8_t DEBUG_LEVEL = 0xff;
 static uint8_t TIMESTAMP = 0;
 
 /* Parameter spec table */
@@ -56,34 +60,7 @@ static loc_param_s_type loc_parameter_table[] =
   {"DEBUG_LEVEL",                    &DEBUG_LEVEL, NULL,                   'n'},
   {"TIMESTAMP",                      &TIMESTAMP,   NULL,                   'n'},
 };
-
 int loc_param_num = sizeof(loc_parameter_table) / sizeof(loc_param_s_type);
-
-/*===========================================================================
-FUNCTION loc_default_parameters
-
-DESCRIPTION
-   Resets the parameters to default
-
-DEPENDENCIES
-   N/A
-
-RETURN VALUE
-   None
-
-SIDE EFFECTS
-   N/A
-===========================================================================*/
-
-static void loc_default_parameters()
-{
-   /* defaults */
-   DEBUG_LEVEL = 3; /* debug level */
-   TIMESTAMP = 0;
-
-   /* reset logging mechanism */
-   loc_logger_init(DEBUG_LEVEL, TIMESTAMP);
-}
 
 /*===========================================================================
 FUNCTION trim_space
@@ -246,15 +223,14 @@ void loc_read_conf(const char* conf_file_name, loc_param_s_type* config_table, u
    loc_param_v_type config_value;
    uint32_t i;
 
-   loc_default_parameters();
-
    if((gps_conf_fp = fopen(conf_file_name, "r")) != NULL)
    {
-      LOC_LOGD("%s: using %s", __FUNCTION__, GPS_CONF_FILE);
+      LOC_LOGD("%s: using %s", __FUNCTION__, conf_file_name);
    }
    else
    {
-      LOC_LOGW("%s: no %s file found", __FUNCTION__, GPS_CONF_FILE);
+      LOC_LOGW("%s: no %s file found", __FUNCTION__, conf_file_name);
+      loc_logger_init(DEBUG_LEVEL, TIMESTAMP);
       return; /* no parameter file */
    }
 
