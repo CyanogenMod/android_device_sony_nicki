@@ -107,6 +107,8 @@ TARGET_POWERHAL_NO_TOUCH_BOOST := true
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
+TARGET_POWERHAL_VARIANT := qcom
+
 BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
 
