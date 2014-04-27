@@ -1685,7 +1685,7 @@ SectionVerb
 	Name "FM Digital Radio"
 
 	EnableSequence
-		'Internal FM RX Volume':1:30
+		'Internal FM RX Volume':1:0
 		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:1
 		'SLIMBUS_DL_HL Switch':1:1
 	EndSequence
@@ -2990,7 +2990,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:70
+		'RX1 Digital Volume':1:68
 	EndSequence
 
 	DisableSequence
@@ -3035,7 +3035,7 @@ SectionDevice
 EndSection
 
 SectionDevice
-       Name "HAC Voice Earpiece"
+	Name "HAC Voice Earpiece"
 	Comment "HAC Handset Rx device for voice call"
 
 	EnableSequence
@@ -3127,8 +3127,8 @@ SectionDevice
 		'LINEOUT2 Volume':1:100
 		'SLIM_0_RX Channels':0:One
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':1:70
-		'PMIC SPK Gain':0:POS_10_DB
+		'RX1 Digital Volume':1:68
+		'PMIC SPK Gain':0:POS_20_DB
 	EndSequence
 
 	DisableSequence
@@ -3183,8 +3183,8 @@ SectionDevice
 		'RX2 MIX1 INP1':0:RX1
 		'RX3 MIX1 INP1':0:RX2
 		'DAC4 MUX':0:ON
-		'HPHL Volume':1:80
-		'HPHR Volume':1:80
+		'HPHL Volume':1:68
+		'HPHR Volume':1:68
 		'RX2 Digital Volume':1:68
 		'RX3 Digital Volume':1:68
 	EndSequence
@@ -3216,10 +3216,10 @@ SectionDevice
 		'RX2 MIX1 INP1':0:RX1
 		'RX3 MIX1 INP1':0:RX2
 		'DAC4 MUX':0:ON
-		'HPHL Volume':1:80
-		'HPHR Volume':1:80
-		'RX2 Digital Volume':1:67
-		'RX3 Digital Volume':1:67
+		'HPHL Volume':1:68
+		'HPHR Volume':1:68
+		'RX2 Digital Volume':1:68
+		'RX3 Digital Volume':1:68
 	EndSequence
 
 	DisableSequence
@@ -3238,7 +3238,7 @@ SectionDevice
 EndSection
 
 SectionDevice
-        Name "Voice Headphone3Ring"
+	Name "Voice Headphone3Ring"
 	Comment "Headset 3ring Rx device for voice call"
 
 	EnableSequence
@@ -3264,7 +3264,7 @@ SectionDevice
 		'HPHR Volume':1:0
 	EndSequence
 
-	ACDBID	10:1
+	ACDBID	64:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3465,7 +3465,7 @@ SectionDevice
 		'SLIM_0_RX Channels':0:One
 		'RX1 MIX1 INP1':0:RX1
 		'RX1 Digital Volume':1:68
-                'PMIC SPK Gain':0:POS_14_DB	  
+		'PMIC SPK Gain':0:POS_20_DB
 	EndSequence
 
 	DisableSequence
@@ -3489,7 +3489,6 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC2
-		'DEC1 Volume':1:74
 		'ADC2 Volume':1:100
 	EndSequence
 
@@ -3497,7 +3496,6 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
-		'DEC1 Volume':1:0
 		'ADC2 Volume':1:0
 	EndSequence
 
@@ -3651,7 +3649,7 @@ SectionDevice
 EndSection
 
 SectionDevice
-        Name "Main mic"
+	Name "Main mic"
 	Comment "Main mic"
 
 	EnableSequence
@@ -3778,17 +3776,13 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:1
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'DEC1 Volume':1:74
-		'ADC1 Volume':1:100
+		'DEC1 MUX':0:DMIC1
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
-		'DEC1 Volume':1:0
-		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID	4:2
@@ -3828,17 +3822,13 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:1
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'DEC1 Volume':1:74
-		'ADC1 Volume':1:100
+		'DEC1 MUX':0:DMIC1
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
-		'DEC1 Volume':1:0
-		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID  36:2
@@ -3918,13 +3908,9 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:1
 		'AIF1_CAP Mixer SLIM TX5':1:1
 		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'SLIM TX2 MUX':0:DEC2
-		'DEC2 MUX':0:ADC3
-		'DEC1 Volume':1:60
-		'ADC1 Volume':1:100
-		'DEC2 Volume':1:60
-		'ADC3 Volume':1:100
+		'DEC1 MUX':0:DMIC1
+		'SLIM TX5 MUX':0:DEC2
+		'DEC2 MUX':0:DMIC2
 		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
@@ -3933,12 +3919,8 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX5':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC2 MUX':0:ZERO
-		'SLIM TX2 MUX':0:ZERO
+		'SLIM TX5 MUX':0:ZERO
 		'DEC2 MUX':0:ZERO
-		'DEC1 Volume':1:0
-		'ADC1 Volume':1:0
-		'DEC2 Volume':1:0
-		'ADC3 Volume':1:0
 	EndSequence
 
 	ACDBID	6:2
@@ -3954,13 +3936,9 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:1
 		'AIF1_CAP Mixer SLIM TX5':1:1
 		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'SLIM TX2 MUX':0:DEC2
-		'DEC2 MUX':0:ADC3
-		'DEC1 Volume':1:74
-		'ADC1 Volume':1:100
-		'DEC2 Volume':1:68
-		'ADC3 Volume':1:100
+		'DEC1 MUX':0:DMIC1
+		'SLIM TX5 MUX':0:DEC2
+		'DEC2 MUX':0:DMIC2
 		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
@@ -3969,12 +3947,8 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX5':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
-		'SLIM TX2 MUX':0:ZERO
+		'SLIM TX5 MUX':0:ZERO
 		'DEC2 MUX':0:ZERO
-		'DEC1 Volume':1:0
-		'ADC1 Volume':1:0
-		'DEC2 Volume':1:0
-		'ADC3 Volume':1:0
 	EndSequence
 
 	ACDBID	13:2
@@ -4045,7 +4019,7 @@ SectionDevice
 		'RX2 MIX1 INP1':0:RX1
 		'DAC4 MUX':0:ON
 		'HPHL Volume':1:68
-		'RX2 Digital Volume':1:65
+		'RX2 Digital Volume':1:68
 	EndSequence
 
 	DisableSequence
@@ -4360,8 +4334,8 @@ SectionDevice
 		'LINEOUT2 Volume':1:100
 		'SLIM_0_RX Channels':0:One
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':1:70
-		'PMIC SPK Gain':0:POS_10_DB
+		'RX1 Digital Volume':1:68
+		'PMIC SPK Gain':0:POS_20_DB
 	EndSequence
 
 	DisableSequence
@@ -4765,7 +4739,7 @@ SectionModifier
 	Name "Play FM"
 
 	EnableSequence
-		'Internal FM RX Volume':1:30
+		'Internal FM RX Volume':1:0
 		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:1
 		'SLIMBUS_DL_HL Switch':1:1
 	EndSequence
@@ -4778,7 +4752,7 @@ SectionModifier
 	# ALSA PCMs
 	PlaybackPCM 5
 	CapturePCM 6
-        PlaybackVolume "Internal FM RX Volume"
+	PlaybackVolume "Internal FM RX Volume"
 
 EndSection
 
@@ -4786,7 +4760,7 @@ SectionModifier
 	Name "Play FMSpeaker FM Tx"
 
 	EnableSequence
-		'Internal FM RX Volume':1:30
+		'Internal FM RX Volume':1:0
 		'SLIMBUS_0_RX Port Mixer INTERNAL_FM_TX':1:1
 		'SLIMBUS_DL_HL Switch':1:1
 	EndSequence
@@ -5886,21 +5860,6 @@ SectionModifier
         # ALSA PCMs
         CapturePCM 0
         PlaybackPCM 0
-
-EndSection
-
-SectionModifier
-	Name "Play MusicPROXY Tx"
-
-	EnableSequence
-	EndSequence
-
-	DisableSequence
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
 
 EndSection
 
