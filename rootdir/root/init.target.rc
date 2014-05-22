@@ -233,7 +233,7 @@ service led-deamon /system/bin/led_deamon
 service sensord /system/bin/sensord
     user system
     group compass misc input
-    class core
+    class main
     oneshot
 
 #start camera server as daemon
