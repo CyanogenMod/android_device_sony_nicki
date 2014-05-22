@@ -231,9 +231,10 @@ service led-deamon /system/bin/led_deamon
     group system
 
 service sensord /system/bin/sensord
-    user compass
+    user system
     group compass misc input
-    class main
+    class core
+    oneshot
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
