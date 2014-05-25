@@ -3280,17 +3280,17 @@ SectionDevice
 		'RX2 MIX1 INP1':0:RX1
 		'RX3 MIX1 INP1':0:RX2
 		'DAC4 MUX':0:ON
-		'HPHL Volume':1:68
-		'HPHR Volume':1:68
+		'HPHL Volume':1:60
+		'HPHR Volume':1:60
 		'DAC3 MUX':0:INV_RX1
 		'DAC2 MUX':0:RX1
 		'LINEOUT1 Volume':1:100
 		'LINEOUT2 Volume':1:100
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':1:68
+		'RX1 Digital Volume':1:60
 		'PMIC SPK Gain':0:POS_20_DB
-		'RX2 Digital Volume':1:68
-		'RX3 Digital Volume':1:68
+		'RX2 Digital Volume':1:60
+		'RX3 Digital Volume':1:60
 	EndSequence
 
 	DisableSequence
