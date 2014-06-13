@@ -12,11 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+TARGET_PROVIDES_ADRENO_DRIVER := true
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/sony/nicki/nicki-vendor.mk)
 $(call inherit-product, device/sony/common/resources.mk)
-$(call inherit-product, device/sony/qcom-common/qcom-common-adreno.mk)
+$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
 
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
@@ -199,6 +201,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.service_mask=0x5 \
     persist.gps.qc_nlp_in_use=0 \
     ro.gps.agps_provider=1
+
+# OpenGL ES 3.0
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196608
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
