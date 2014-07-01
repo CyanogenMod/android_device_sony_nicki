@@ -14,6 +14,10 @@
   {
     "repository": "android_kernel_sony_msm8x27",
     "target_path": "kernel/sony/msm8x27"
+  },
+  {
+    "repository": "android_hardware_qcom_fm",
+    "target_path": "hardware/qcom/fm"
   }
 
 ]

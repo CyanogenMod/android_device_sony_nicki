@@ -1,5 +1,7 @@
 bin/btnvtool
+bin/ds_fmc_appd
 bin/efsks
+bin/fm_qsoc_patches
 bin/gsiff_daemon
 bin/hci_qcomm_init
 bin/irsc_util
