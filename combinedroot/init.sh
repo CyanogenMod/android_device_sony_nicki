@@ -45,6 +45,7 @@ load_image=/sbin/ramdisk.cpio
 
 # boot decision
 if [ -s /dev/keycheck ] || busybox grep -q warmboot=0x77665502 /proc/cmdline ; then
+        busybox echo 0 > /sys/module/msm_fb/parameters/align_buffer
 	busybox echo 'RECOVERY BOOT' >>boot.txt
 	# cyan led for recoveryboot
 	busybox echo ${BOOTREC_RED_LED_OFF} > ${BOOTREC_CONTROL_LED}

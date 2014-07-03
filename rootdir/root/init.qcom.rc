@@ -475,6 +475,7 @@ service charger /charger
     class charger
 
 on charger
+    write /sys/module/msm_fb/parameters/align_buffer 0
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 0FCE
     write /sys/class/android_usb/android0/idProduct E19B
