@@ -14,6 +14,8 @@
 
 # Product-specific compile-time definitions.
 
+BOARD_EGL_CFG := device/sony/nicki/rootdir/system/lib/egl/egl.cfg
+
 include vendor/sony/nicki/BoardConfigVendor.mk
 
 # inherit from Sony common
@@ -66,7 +68,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 BOARD_USES_QCOM_HARDWARE := true
 
 # QCOM Display and Graphics
-BOARD_EGL_CFG := device/sony/nicki/rootdir/system/lib/egl/egl.cfg
 TARGET_QCOM_DISPLAY_VARIANT := caf
 TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_USES_QCOM_BSP := true
