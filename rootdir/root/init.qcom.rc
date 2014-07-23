@@ -36,7 +36,6 @@ on init
     mkdir /storage/emulated 0555 root root
     mkdir /mnt/media_rw/sdcard1 0555 root root
     mkdir /mnt/media_rw/usbdisk 0555 root root
-    mkdir /storage/emulated/legacy 0555 root root
     mkdir /storage/sdcard1 0775 system system
     mkdir /storage/usbdisk 0775 system system
 
@@ -49,6 +48,7 @@ on init
     symlink /storage/emulated/legacy /sdcard
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
+    symlink /mnt/shell/emulated/0    /storage/emulated/legacy
     symlink /storage/sdcard1         /ext_card
     symlink /storage/sdcard1         /mnt/ext_card
     symlink /storage/usbdisk         /usbdisk
