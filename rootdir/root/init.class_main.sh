@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2012, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,40 +26,48 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-target="$1"
-serial="$2"
+#
+# start ril-daemon only for targets on which radio is present
+#
+baseband=`getprop ro.baseband`
+netmgr=`getprop ro.use_data_netmgrd`
+sgltecsfb=`getprop persist.radio.sglte_csfb`
 
-# No path is set up at this point so we have to do it here.
-PATH=/sbin:/system/sbin:/system/bin:/system/xbin
-export PATH
+case "$baseband" in
+    "apq")
+    setprop ro.radio.noril yes
+    stop ril-daemon
+esac
 
-mount_needed=false;
+case "$baseband" in
+    "msm" | "csfb" | "svlte2a" | "mdm" | "sglte" | "sglte2" | "dsda2" | "unknown")
+    start qmuxd
+    case "$baseband" in
+        "svlte2a" | "csfb")
+          start qmiproxy
+        ;;
+        "sglte" | "sglte2" )
+          if [ "x$sgltecsfb" != "xtrue" ]; then
+              start qmiproxy
+          else
+              setprop persist.radio.voice.modem.index 0
+          fi
+        ;;
+        "dsda2")
+          setprop persist.radio.multisim.config dsda
+    esac
 
-if [ ! -f /system/etc/boot_fixup ];then
-# This should be the first command
-# remount system as read-write.
-  mount -o rw,remount,barrier=1 /system
-  mount_needed=true;
-fi
+    multisim=`getprop persist.radio.multisim.config`
 
-# **** WARNING *****
-# This runs in a single-threaded, critical path portion
-# of the Android bootup sequence.  This is to guarantee
-# all necessary system partition fixups are done before
-# the rest of the system starts up.  Run any non-
-# timing critical tasks in a separate process to
-# prevent slowdown at boot.
+    if [ "$multisim" = "dsds" ] || [ "$multisim" = "dsda" ]; then
+        start ril-daemon1
+    elif [ "$multisim" = "tsts" ]; then
+        start ril-daemon1
+        start ril-daemon2
+    fi
 
-# Run modem link script
-if [ -f /system/etc/init.qcom.modem_links.sh ]; then
-  /system/bin/sh /system/etc/init.qcom.modem_links.sh
-fi
-
-touch /system/etc/boot_fixup
-
-if $mount_needed ;then
-# This should be the last command
-# remount system as read-only.
-  mount -o ro,remount,barrier=1 /system
-fi
-
+    case "$netmgr" in
+        "true")
+        start netmgrd
+    esac
+esac

@@ -277,10 +277,6 @@ service time_daemon /system/bin/time_daemon
    class late_start
    user root
    group root
-   disabled
-
-on property:persist.timed.enable=true
-    start time_daemon
 
 service ta_qmi_service /system/bin/ta_qmi_service
     class late_start
