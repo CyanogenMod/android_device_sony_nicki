@@ -2990,7 +2990,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:68
+		'RX1 Digital Volume':1:72
 	EndSequence
 
 	DisableSequence
@@ -3018,7 +3018,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:68
+		'RX1 Digital Volume':1:72
 	EndSequence
 
 	DisableSequence
@@ -3098,7 +3098,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:68
+		'RX1 Digital Volume':1:70
 	EndSequence
 
 	DisableSequence
@@ -3127,7 +3127,7 @@ SectionDevice
 		'LINEOUT2 Volume':1:100
 		'SLIM_0_RX Channels':0:One
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':1:68
+		'RX1 Digital Volume':1:57
 		'PMIC SPK Gain':0:POS_20_DB
 	EndSequence
 
@@ -3185,8 +3185,8 @@ SectionDevice
 		'DAC4 MUX':0:ON
 		'HPHL Volume':1:83
 		'HPHR Volume':1:83
-		'RX2 Digital Volume':1:68
-		'RX3 Digital Volume':1:68
+		'RX2 Digital Volume':1:65
+		'RX3 Digital Volume':1:65
 	EndSequence
 
 	DisableSequence
@@ -3280,17 +3280,17 @@ SectionDevice
 		'RX2 MIX1 INP1':0:RX1
 		'RX3 MIX1 INP1':0:RX2
 		'DAC4 MUX':0:ON
-		'HPHL Volume':1:63
-		'HPHR Volume':1:63
+		'HPHL Volume':1:55
+		'HPHR Volume':1:55
 		'DAC3 MUX':0:INV_RX1
 		'DAC2 MUX':0:RX1
 		'LINEOUT1 Volume':1:100
 		'LINEOUT2 Volume':1:100
 		'RX1 MIX1 INP1':0:RX1
-		'RX1 Digital Volume':1:63
+		'RX1 Digital Volume':1:55
 		'PMIC SPK Gain':0:POS_20_DB
-		'RX2 Digital Volume':1:63
-		'RX3 Digital Volume':1:63
+		'RX2 Digital Volume':1:55
+		'RX3 Digital Volume':1:55
 	EndSequence
 
 	DisableSequence
