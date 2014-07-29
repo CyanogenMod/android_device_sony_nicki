@@ -58,7 +58,11 @@ on init
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-    exec /system/bin/sh /init.qcom.syspart_fixup.sh ${ro.board.platform} ${ro.serialno}
+
+service modem-sh /system/bin/sh /system/etc/init.qcom.modem_links.sh
+    class core
+    user root
+    oneshot
 
 on boot
     exec /system/bin/btnvtool -O
