@@ -31,5 +31,5 @@
 #
 multisim=`getprop persist.radio.multisim.config`
 if [ "$multisim" = "dsds" ] || [ "$multisim" = "dsda" ]; then
-    start ril-daemon1
+    start ril-daemon2
 fi
