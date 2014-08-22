@@ -35,7 +35,7 @@ BOARD_VENDOR_PLATFORM := nicki
 TARGET_BOOTLOADER_BOARD_NAME := qcom
 
 # OTA Assert
-TARGET_OTA_ASSERT_DEVICE := c1904,c1905,nicki
+TARGET_OTA_ASSERT_DEVICE := C1904,C1905,C2004,C2005,nicki
 
 # Cflags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
@@ -123,6 +123,10 @@ TARGET_POWERHAL_NO_TOUCH_BOOST := true
 
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
+
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_nicki
+TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
