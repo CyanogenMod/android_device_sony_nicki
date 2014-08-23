@@ -37,15 +37,9 @@
 
 void vendor_load_properties()
 {
-    char platform[PROP_VALUE_MAX];
     char device[PROP_VALUE_MAX];
     char bbversion[92];
     FILE *fp;
-    int rc;
-
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || strncmp(platform, ANDROID_TARGET, PROP_VALUE_MAX))
-        return;
 
     fp = popen("/system/xbin/strings /dev/block/platform/msm_sdcc.1/by-name/modem | /system/bin/grep M8930B-", "r");
     fgets(bbversion, sizeof(bbversion), fp);
