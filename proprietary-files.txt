@@ -50,8 +50,6 @@ etc/firmware/vidc.b03
 etc/firmware/vidcfw.elf
 etc/firmware/vidc.mdt
 etc/firmware/wlan/prima/WCNSS_cfg.dat
-etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 lib/hw/nfc.msm8960.so
 lib/hw/sensors.default.so
 lib/hw/camera.msm8960.so:lib/hw/camera.vendor.msm8960.so
