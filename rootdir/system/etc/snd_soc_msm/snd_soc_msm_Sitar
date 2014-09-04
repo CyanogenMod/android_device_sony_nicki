@@ -2990,7 +2990,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:69
+		'RX1 Digital Volume':1:68
 	EndSequence
 
 	DisableSequence
@@ -3018,7 +3018,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:71
+		'RX1 Digital Volume':1:70
 	EndSequence
 
 	DisableSequence
@@ -3030,33 +3030,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID	7:1
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "HAC Voice Earpiece"
-	Comment "HAC Handset Rx device for voice call"
-
-	EnableSequence
-		'SLIM RX1 MUX':0:AIF1_PB
-		'SLIM_0_RX Channels':0:One
-		'DAC1 MUX':0:RX1
-		'RX1 MIX1 INP1':0:RX1
-		'EAR PA Gain':0:POS_2_DB
-		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:68
-	EndSequence
-
-	DisableSequence
-		'SLIM RX1 MUX':0:ZERO
-		'DAC1 MUX':0:ZERO
-		'RX1 MIX1 INP1':0:ZERO
-		'EAR PA Gain':0:POS_6_DB
-		'DAC1 Switch':1:0
-	EndSequence
-
-	ACDBID	65:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3149,26 +3122,28 @@ SectionDevice
 
         EnableSequence
                 'SLIM_0_RX Channels':0:One
-                'RX3 MIX1 INP1':0:RX1
-                'RX3 MIX1 INP2':0:RX6
-                'RX4 DSM MUX':0:DSM_INV
-                'RX3 Digital Volume':1:68
+                'RX1 MIX1 INP1':0:RX1
+                'DAC3 MUX':0:INV_RX1
+                'DAC2 MUX':0:RX1
+                'RX1 Digital Volume':1:60
                 'LINEOUT1 Volume':1:100
                 'LINEOUT3 Volume':1:100
-                'SLIM TX3 MUX':0:RMIX3
+                'PMIC SPK Gain':0:POS_10_DB
         EndSequence
 
         DisableSequence
-                'RX3 MIX1 INP1':0:ZERO
-                'RX3 MIX1 INP2':0:ZERO
-                'RX4 DSM MUX':0:CIC_OUT
-                'RX3 Digital Volume':1:68
+                'RX1 MIX1 INP1':0:ZERO
+                'DAC3 MUX':0:ZERO
+                'DAC2 MUX':0:ZERO
+                'RX1 Digital Volume':1:0
                 'LINEOUT1 Volume':1:0
                 'LINEOUT3 Volume':1:0
-                'SLIM TX3 MUX':0:ZERO
+                'PMIC SPK Gain':0:POS_0_DB
         EndSequence
 
-        ACDBID        14:1
+        ACDBID        15:1
+	EffectsMixerCTL "SRS TruMedia"
+	EC_REF_RXMixerCTL "SLIM_RX"
 
 EndSection
 
@@ -3233,38 +3208,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID	10:1
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Voice Headphone3Ring"
-	Comment "Headset 3ring Rx device for voice call"
-
-	EnableSequence
-		'SLIM RX1 MUX':0:AIF1_PB
-		'SLIM RX2 MUX':0:AIF1_PB
-		'SLIM_0_RX Channels':0:Two
-		'RX2 MIX1 INP1':0:RX1
-		'RX3 MIX1 INP1':0:RX2
-		'DAC4 MUX':0:ON
-		'HPHL Volume':1:68
-		'HPHR Volume':1:68
-		'RX2 Digital Volume':1:68
-		'RX3 Digital Volume':1:68
-	EndSequence
-
-	DisableSequence
-		'SLIM RX1 MUX':0:ZERO
-		'SLIM RX2 MUX':0:ZERO
-		'RX2 MIX1 INP1':0:ZERO
-		'RX3 MIX1 INP1':0:ZERO
-		'DAC4 MUX':0:ZERO
-		'HPHL Volume':1:0
-		'HPHR Volume':1:0
-	EndSequence
-
-	ACDBID	64:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3489,6 +3432,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC2
+		'DEC1 Volume':1:74
 		'ADC2 Volume':1:100
 	EndSequence
 
@@ -3496,6 +3440,7 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
 		'ADC2 Volume':1:0
 	EndSequence
 
@@ -3556,6 +3501,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:74
 		'ADC1 Volume':1:100
 	EndSequence
 
@@ -3563,6 +3509,8 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID	4:2
@@ -3646,100 +3594,6 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "Main mic"
-	Comment "Main mic"
-
-	EnableSequence
-		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'SLIM_0_TX Channels':0:One
-		'ADC1 Volume':1:90
-	EndSequence
-
-	DisableSequence
-		'SLIM TX1 MUX':0:ZERO
-		'DEC1 MUX':0:ZERO
-		'ADC1 Volume':1:0
-	EndSequence
-
-	ACDBID	4:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Second mic"
-	Comment "Second mic"
-
-	EnableSequence
-		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC3
-		'SLIM_0_TX Channels':0:One
-		'ADC3 Volume':1:90
-	EndSequence
-
-	DisableSequence
-		'SLIM TX1 MUX':0:ZERO
-		'DEC1 MUX':0:ZERO
-		'ADC3 Volume':1:0
-	EndSequence
-
-	ACDBID	4:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "speaker mainmic"
-	Comment "speaker mainmic"
-
-	EnableSequence
-		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'SLIM_0_TX Channels':0:One
-		'ADC1 Volume':1:100
-	EndSequence
-
-	DisableSequence
-		'SLIM TX1 MUX':0:ZERO
-		'DEC1 MUX':0:ZERO
-		'ADC1 Volume':1:0
-	EndSequence
-
-	ACDBID	11:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "speaker dualmic"
-	Comment "speaker dualmic"
-
-	EnableSequence
-		'SLIM TX1 MUX':0:DEC1
-		'DEC1 MUX':0:ADC1
-		'SLIM TX5 MUX':0:DEC2
-		'DEC2 MUX':0:ADC3
-		'SLIM_0_TX Channels':0:Two
-		'ADC1 Volume':1:100
-		'ADC3 Volume':1:100
-	EndSequence
-
-	DisableSequence
-		'SLIM TX1 MUX':0:ZERO
-		'DEC1 MUX':0:ZERO
-		'SLIM TX5 MUX':0:ZERO
-		'DEC2 MUX':0:ZERO
-		'ADC1 Volume':1:0
-		'ADC3 Volume':1:0
-	EndSequence
-
-	ACDBID	12:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
 	Name "TTY Handset Analog Tx"
 	Comment "TTY Handset Analog Tx device"
 
@@ -3748,12 +3602,16 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:74
+		'ADC1 Volume':1:100
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID  36:2
@@ -3770,15 +3628,19 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:74
+		'ADC1 Volume':1:100
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
-	ACDBID	11:2
+	ACDBID  4:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -3816,12 +3678,16 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:74
+		'ADC1 Volume':1:100
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID  36:2
@@ -3919,6 +3785,36 @@ SectionDevice
 	EndSequence
 
 	ACDBID	41:2
+	EffectsMixerCTL "SRS TruMedia"
+
+EndSection
+
+SectionDevice
+	Name "Handset DMIC Stereo"
+	Comment "Dual MIC Stereo Tx device"
+
+	EnableSequence
+		'AIF1_CAP Mixer SLIM TX1':1:1
+		'AIF1_CAP Mixer SLIM TX5':1:1
+		'SLIM TX1 MUX':0:DEC1
+		'DEC1 MUX':0:ADC1
+		'SLIM TX5 MUX':0:DEC3
+		'DEC3 MUX':0:ADC3
+		'SLIM_0_TX Channels':0:Two
+		'ADC1 Volume':1:100
+		'ADC3 Volume':1:100
+	EndSequence
+
+	DisableSequence
+		'AIF1_CAP Mixer SLIM TX1':1:0
+		'AIF1_CAP Mixer SLIM TX5':1:0
+		'SLIM TX1 MUX':0:ZERO
+		'DEC1 MUX':0:ZERO
+		'SLIM TX5 MUX':0:ZERO
+		'DEC2 MUX':0:ZERO
+	EndSequence
+
+	ACDBID	6:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
