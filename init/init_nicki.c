@@ -29,39 +29,80 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <fcntl.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
 
+#define MODELNUMBER "/proc/modelnumber"
+#define BUF_SIZE         64
+#define STRCONV_(x)      #x
+#define STRCONV(x)       "%" STRCONV_(x) "s"
+static char tmp[BUF_SIZE];
+
+void ds_properties();
+
+static int read_file2(const char *fname, char *data, int max_size)
+{
+    int fd, rc;
+
+    if (max_size < 1)
+        return 0;
+
+    fd = open(fname, O_RDONLY);
+    if (fd < 0) {
+        ERROR("failed to open '%s'\n", fname);
+        return 0;
+    }
+
+    rc = read(fd, data, max_size - 1);
+    if ((rc > 0) && (rc < max_size))
+        data[rc] = '\0';
+    else
+        data[0] = '\0';
+    close(fd);
+
+    return 1;
+}
+
+void ds_properties()
+{
+        property_set("persist.radio.multisim.config", "dsds");
+        property_set("persist.radio.dont_use_dsd", "true");
+}
+
 void vendor_load_properties()
 {
     char device[PROP_VALUE_MAX];
-    char bbversion[92];
-    FILE *fp;
+    int rc;
+    static char modelnumber[BUF_SIZE];
 
-    fp = popen("/system/xbin/strings /dev/block/platform/msm_sdcc.1/by-name/modem | /system/bin/grep M8930B-", "r");
-    fgets(bbversion, sizeof(bbversion), fp);
-    pclose(fp);
+    rc = read_file2(MODELNUMBER, tmp, sizeof(tmp));
+    if (rc) {
+        sscanf(tmp, STRCONV(BUF_SIZE), modelnumber);
+    }
 
-    if (strstr(bbversion, "M8930B-AAAATAZM-3.2.25121") ||
-            strstr(bbversion, "M8930B-AAAATAZM-3.2.25126")) { //single sim 4.3 basebands
-        property_set("ro.product.device", "C1905");
-        property_set("ro.product.model", "C1905");
+    property_set("ro.product.device", modelnumber);
+    property_set("ro.product.model", modelnumber);
+
+    if (strstr(modelnumber, "C1905")) {
         property_set("ro.build.description", "C1905-user 4.3 2.22.J.1.18 eng.user.20140509.125022 test-keys");
         property_set("ro.build.fingerprint", "Sony/C1905/C1905:4.3/15.4.A.1.9/eng.user.20140509.125022:user/release-keys");
-        property_set("persist.radio.multisim.config", "");
-    } else if (strstr(bbversion, "M8930B-AAAATAZM-4.5.21264") ||
-            strstr(bbversion, "M8930B-AAAATAZM-4.5.21266")) { //dual sim 4.3 basebands
-        property_set("ro.product.device", "C2005");
-        property_set("ro.product.model", "C2005");
+    } else if (strstr(modelnumber, "C1904")) {
+        property_set("ro.build.description", "C1904-user 4.3 2.22.J.1.18 eng.user.20140509.125022 test-keys");
+        property_set("ro.build.fingerprint", "Sony/C1904/C1904:4.3/15.4.A.1.9/eng.user.20140509.125022:user/release-keys");
+    } else if (strstr(modelnumber, "C2005")) {
+        ds_properties();
         property_set("ro.build.description", "C2005-user 4.3 2.23.J.1.14 eng.user.20140430.172301 test-keys");
         property_set("ro.build.fingerprint", "Sony/C2005/C2005:4.3/15.5.A.1.5/eng.user.20140430.172301:user/release-keys");
-        property_set("persist.radio.multisim.config", "dsds");
-        property_set("persist.radio.dont_use_dsd", "true");
+    } else if (strstr(modelnumber, "C2004")) {
+        ds_properties();
+        property_set("ro.build.description", "C2004-user 4.3 2.23.J.1.14 eng.user.20140430.172301 test-keys");
+        property_set("ro.build.fingerprint", "Sony/C2004/C2004:4.3/15.5.A.1.5/eng.user.20140430.172301:user/release-keys");
     };
 
     property_get("ro.product.device", device);
-    ERROR("Found %s baseband setting build properties for %s device\n", bbversion, device);
+    ERROR("setting build properties for %s device\n", device);
 }
