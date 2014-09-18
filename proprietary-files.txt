@@ -21,7 +21,7 @@ bin/thermald
 bin/time_daemon
 bin/updatemiscta
 etc/firmware/a300_pfp.fw
-etcfirmware/a300_pm4.fw
+etc/firmware/a300_pm4.fw
 etc/firmware/cyttsp_8064_mtp.hex
 etc/firmware/cyttsp_8960_cdp.hex
 etc/firmware/dxhdcp2.b00
