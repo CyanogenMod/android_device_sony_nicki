@@ -20,8 +20,8 @@ bin/ta_qmi_service
 bin/thermald
 bin/time_daemon
 bin/updatemiscta
-firmware/a300_pfp.fw
-firmware/a300_pm4.fw
+etc/firmware/a300_pfp.fw
+etc/firmware/a300_pm4.fw
 etc/firmware/cyttsp_8064_mtp.hex
 etc/firmware/cyttsp_8960_cdp.hex
 etc/firmware/dxhdcp2.b00
@@ -126,7 +126,7 @@ lib/libpin-cache.so
 lib/libprofiler_msmadc.so
 lib/libqcci_adc.so
 lib/libqcci_legacy.so
-lib/libqc-opt.so
+lib/libqc-opt.so:vendor/lib/libqc-opt.so
 lib/libqdi.so
 lib/libqdp.so
 lib/libqmi_client_qmux.so
@@ -154,7 +154,7 @@ vendor/lib/libadreno_utils.so
 vendor/lib/libc2d2_a3xx.so
 vendor/lib/libC2D2.so
 vendor/lib/libc2d2_z180.so
-endor/lib/libCB.so
+vendor/lib/libCB.so
 vendor/lib/libdiag.so
 vendor/lib/libgeofence.so
 vendor/lib/libgsl.so
