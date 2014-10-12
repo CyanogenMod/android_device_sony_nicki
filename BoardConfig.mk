@@ -87,6 +87,9 @@ BOARD_USES_QC_TIME_SERVICES := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Legacy Ril
+BOARD_HAS_RIL_LEGACY_PAP := true
+
 # Fm
 QCOM_FM_ENABLED := true
 
