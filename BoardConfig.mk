@@ -117,10 +117,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/nicki/recovery/recovery_keys.c
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
-# PowerHAL
-TARGET_POWERHAL_VARIANT := qcom
-TARGET_POWERHAL_NO_TOUCH_BOOST := true
-
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
