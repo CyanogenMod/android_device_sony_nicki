@@ -169,6 +169,10 @@ vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libquipc_os_api.so
-vendor/lib/libtime_genoff.so
+-vendor/lib/libtime_genoff.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libulp2.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/mediadrm/libwvdrmengine.so
