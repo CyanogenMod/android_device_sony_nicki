@@ -1,6 +1,23 @@
-allow init_shell diag_device:chr_file { read write };
-allow init_shell hci_exec:file rx_file_perms;
-allow init_shell bluetooth_prop:property_service set;
-allow init_shell smd_device:chr_file rw_file_perms;
-allow init_shell unlabeled:file r_file_perms;
-allow init_shell init:fifo_file r_file_perms;
+#for accessing fmradio device node
+allow  init_shell  fm_radio_device:chr_file { open read ioctl };
+# for insmod of iris ko  , this is needed .
+allow init_shell self:capability sys_module;
+
+#for  property starting with hw
+allow init_shell  system_prop:property_service set ;
+
+#for access to set BT property
+allow init_shell  bluetooth_prop:property_service set;
+
+#most of the default properties are set by init_shell
+allow init_shell  default_prop:property_service set;
+
+allow init_shell shell_exec:file execute_no_trans;
+
+#Needed in order to set properties while going in/out of debug mode.
+allow init_shell ctl_default_prop:property_service set;
+
+#perfd
+allow init_shell ctl_default_prop:property_service set;
+
+allow init_shell ctl_rildaemon_prop:property_service set;

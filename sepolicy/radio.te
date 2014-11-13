@@ -1,0 +1,6 @@
+# Talks to qmuxd via the qmux_radio socket.
+qmux_socket(radio);
+
+#Need permission to execute com.qualcomm.qti.telephony/app_dex/xx
+allow radio radio_data_file:file execute;
+allow radio shell_data_file:dir search;

@@ -1,4 +1,16 @@
-allow ueventd sdcard_external:dir search;
-allow ueventd sdcard_external:file r_file_perms;
+#Allow firmware_file access to load Non-HLOS images
+allow ueventd firmware_file:dir search;
+allow ueventd firmware_file:file { read getattr open };
+
+#Allow persist_file access to wcnss bin
+allow ueventd persist_file:dir search;
+allow ueventd persist_file:file { read getattr open };
+
+#for wifi to access wifi_data_file
 allow ueventd wifi_data_file:dir search;
-allow ueventd wifi_data_file:file r_file_perms;
+allow ueventd wifi_data_file:file { read getattr open };
+
+allow ueventd sysfs_thermal:file w_file_perms;
+allow ueventd sysfs_usb_supply:file w_file_perms;
+
+allow ueventd sysfs_socinfo:file w_file_perms;

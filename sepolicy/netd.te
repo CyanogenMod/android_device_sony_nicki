@@ -1,6 +1,8 @@
-#============= netd ==============
-allow netd self:packet_socket create;
-
-#Rules needed for IPV6 Tethering
+#Policies for IPv6 tethering
 allow netd netd:capability { setgid setuid };
-allow netd netd:packet_socket { bind setopt read ioctl };
+allow netd netd:packet_socket { create bind setopt read ioctl };
+
+dontaudit netd self:capability sys_module;
+
+#needed for ipt_TCPMSS and ip6t_TCPMSS
+allow netd kernel:system module_request;

@@ -1,0 +1,31 @@
+# thermald daemon
+type thermald, domain;
+type thermald_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(thermald)
+
+#============= thermald ==============
+#This is to access thermal query device
+allow thermald thermal_device:chr_file { read write ioctl open };
+#This is required to access smem log device
+allow thermald smem_log_device:chr_file { read write ioctl open };
+allow thermald self:capability { dac_read_search dac_override fsetid };
+allow thermald self:socket create_socket_perms;
+allow thermald self:socket { create ioctl read };
+allow thermald self:netlink_kobject_uevent_socket { create setopt bind read };
+allow thermald self:capability { dac_override net_admin chown };
+#This is required to access thermal sockets
+allow thermald thermal_socket:dir { write add_name };
+allow thermald thermal_socket:sock_file { create setattr open read write };
+type_transition thermald socket_device:sock_file thermald_socket;
+allow thermald socket_device:dir w_dir_perms;
+allow thermald thermald_socket:sock_file create_file_perms;
+#This is required for thermal sysfs access
+allow thermald sysfs_thermal:dir { read search open };
+allow thermald sysfs_thermal:file { read write getattr open };
+allow thermald sysfs_thermal:lnk_file read;
+#This is required for qmi access
+qmux_socket(thermald);
+allow thermald sysfs_mpdecision:file rw_file_perms;
+r_dir_file(thermald, sysfs_ssr);

@@ -1,1 +1,2 @@
-allow healthd rootfs:file entrypoint;
+allow healthd sysfs_usb_supply:dir search;
+allow healthd sysfs_usb_supply:file { read open };

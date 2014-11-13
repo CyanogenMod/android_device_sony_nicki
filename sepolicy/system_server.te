@@ -1,0 +1,25 @@
+#============= system_server ==============
+# Access to sensors socket
+unix_socket_connect(system_server, sensors, sensors)
+unix_socket_send(system_server, sensors, sensors)
+allow system_server sensors:unix_stream_socket sendto;
+allow system_server sensors_socket:sock_file r_file_perms;
+qmux_socket(system_server);
+
+# access to perflock
+allow system_server mpctl_socket:dir r_dir_perms;
+unix_socket_send(system_server, mpctl, mpdecision)
+unix_socket_connect(system_server, mpctl, mpdecision)
+allow system_server socket_device:sock_file write;
+unix_socket_send(system_server, mpctl, perfd)
+unix_socket_connect(system_server, mpctl, perfd)
+
+allow system_server location:unix_stream_socket connectto;
+allow system_server location_data_file:dir rw_dir_perms;
+allow system_server location_data_file:fifo_file create_file_perms;
+allow system_server location_socket:sock_file rw_file_perms;
+allow system_server location_app_data_file:dir r_dir_perms;
+allow system_server location_data_file:sock_file rw_file_perms;
+
+#For wifistatemachine
+allow system_server kernel:key search;

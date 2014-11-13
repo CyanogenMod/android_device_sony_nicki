@@ -1,0 +1,43 @@
+type mm-qcamerad, domain;
+type mm-qcamerad_exec, exec_type, file_type;
+init_daemon_domain(mm-qcamerad)
+
+userdebug_or_eng(`
+  allow mm-qcamerad debugfs:dir search;
+')
+
+#Communicate with user land process through domain socket
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket0";
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket1";
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket2";
+allow mm-qcamerad camera_socket:sock_file { create unlink write };
+allow mm-qcamerad camera_socket:dir w_dir_perms;
+allow mm-qcamerad system_data_file:dir w_dir_perms;
+allow mm-qcamerad system_data_file:sock_file unlink;
+unix_socket_connect(mm-qcamerad, sensors, sensors)
+
+allow mm-qcamerad self:process execmem;
+# Interact with other media devices
+allow mm-qcamerad camera_device:dir search;
+allow mm-qcamerad audio_device:dir search;
+allow mm-qcamerad { gpu_device audio_device video_device camera_device sensors_device }:chr_file rw_file_perms;
+
+allow mm-qcamerad { surfaceflinger mediaserver }:fd use;
+# Need to investigate this
+allow mm-qcamerad self:tcp_socket create_socket_perms;
+
+allow mm-qcamerad camera_data_file:dir { write remove_name search add_name };
+allow mm-qcamerad camera_data_file:sock_file { create unlink };
+allow mm-qcamerad node:tcp_socket node_bind;
+allow mm-qcamerad self:tcp_socket listen;
+
+userdebug_or_eng(`
+  allow mm-qcamerad camera_data_file:file create_file_perms;
+')
+
+#/data/fdAlbum
+allow mm-qcamerad system_data_file:dir w_dir_perms;
+allow mm-qcamerad system_data_file:file create_file_perms;
+
+#Remove GL fine reference
+allow mm-qcamerad shell_data_file:dir search;
