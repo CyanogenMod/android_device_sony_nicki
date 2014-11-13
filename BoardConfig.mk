@@ -132,6 +132,8 @@ EXTENDED_FONT_FOOTPRINT := true
 
 MALLOC_IMPL := dlmalloc
 
+TARGET_USES_LOGD := false
+
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
