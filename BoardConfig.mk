@@ -130,6 +130,8 @@ TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+MALLOC_IMPL := dlmalloc
+
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
