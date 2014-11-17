@@ -7,3 +7,4 @@ allow vold self:capability sys_boot;
 allow vold cache_file:dir { write add_name };
 allow vold cache_file:file { write create open };
 allow vold persist_file:dir search;
+allow vold persist_file:file { read write open getattr };
