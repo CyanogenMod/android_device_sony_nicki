@@ -134,6 +134,8 @@ MALLOC_IMPL := dlmalloc
 
 TARGET_USES_LOGD := false
 
+BOARD_USES_LEGACY_MMAP := true
+
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
