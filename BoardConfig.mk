@@ -123,9 +123,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/nicki/recovery/recovery_keys.c
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
-# Override healthd HAL
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
-
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
 TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
