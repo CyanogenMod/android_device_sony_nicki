@@ -141,57 +141,13 @@ BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-       genfs_contexts \
        file_contexts \
-       service_contexts \
-       property_contexts \
-       te_macros \
-       device.te \
        vold.te \
-       ueventd.te \
-       file.te \
-       drmserver.te \
-       adbd.te \
-       app.te \
-       system_server.te \
-       mediaserver.te \
-       qmuxd.te \
        netmgrd.te \
-       port-bridge.te \
-       radio.te \
-       irsc_util.te \
-       netd.te \
-       rild.te \
-       diag.te \
-       audiod.te \
-       system_app.te \
-       thermald.te \
-       global_macros.te \
-       system_app.te \
-       bluetooth.te \
-       init_shell.te \
-       mpdecision.te \
-       perfd.te \
-       mm-qcamerad.te \
-       domain.te \
-       init.te \
-       time_daemon.te \
+       thermal-engine.te \
        rmt_storage.te \
-       qseecomd.te \
-       mcStarter.te \
-       keystore.te \
-       healthd.te \
-       surfaceflinger.te \
-       mm-pp-daemon.te \
-       wpa.te \
-       bootanim.te \
-       zygote.te \
-       servicemanager.te \
-       adsprpcd.te \
-       qlogd.te \
+       mpdecision.te \
+       mm-qcamerad.te \
        location.te \
-       location_app.te \
-       seapp_contexts \
-       sensors.te \
-       logd.te \
-       installd.te
+       sdcardd.te \
+       system_app.te
