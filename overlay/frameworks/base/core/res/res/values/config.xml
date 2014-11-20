@@ -253,6 +253,12 @@
     <!-- SD card is hot-pluggable on this device -->
      <bool name="config_batterySdCardAccessibility">true</bool>
 
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+
+    <!-- Whether UI for multi user should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
 <!--    <bool name="config_enableTorch">true</bool>
 
      Disable lockscreen rotation by default 
