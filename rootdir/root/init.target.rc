@@ -42,6 +42,7 @@ on fs
 
     wait /dev/block/platform/msm_sdcc.1/by-name/persist
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
+    restorecon_recursive /persist
 
     mkdir /lta-label 0555 system system
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/LTALabel /lta-label nosuid nodev noatime noexec ro barrier=0
@@ -50,8 +51,6 @@ on fs
 
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-
-    restorecon_recursive /persist
 
     # TA support
     class_start trimarea
@@ -248,18 +247,12 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 service gsiff_daemon /system/bin/gsiff_daemon
     class late_start
     user system
-    group gps qcom_oncrpc net_raw
+    group gps net_raw
 
 service thermald /system/bin/thermald
    class main
    user root
    group root
-
-service thermal-engine /system/bin/thermal-engine
-   class main
-   user root
-   group root
-   disabled
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    user root

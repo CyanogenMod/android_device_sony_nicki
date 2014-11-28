@@ -46,8 +46,6 @@ DEVICE_PACKAGE_OVERLAYS := device/sony/nicki/overlay
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-PRODUCT_BOOT_JARS += qcmediaplayer
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/root/init.target.rc:root/init.target.rc \
@@ -164,8 +162,6 @@ PRODUCT_PACKAGES += \
     FM2 \
     FMRecord
 
-PRODUCT_PACKAGES += qcmediaplayer
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.transmitpower=true \
     persist.radio.apm_sim_not_pwdn=1 \
@@ -174,7 +170,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=NV,RUIM \
     telephony.lteOnCdmaDevice=0 \
     ro.use_data_netmgrd=true \
-    ro.telephony.call_ring.multiple=false
+    ro.telephony.call_ring.multiple=false \
+    persist.radio.oem_socket=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
