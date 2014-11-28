@@ -18,6 +18,8 @@ BOARD_EGL_CFG := device/sony/nicki/rootdir/system/lib/egl/egl.cfg
 
 include vendor/sony/nicki/BoardConfigVendor.mk
 
+include device/qcom/sepolicy/sepolicy.mk
+
 # inherit from Sony common
 include device/sony/common/BoardConfigCommon.mk
 
