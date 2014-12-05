@@ -262,6 +262,7 @@ service thermald /system/bin/thermald
    group root
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+   class main
    user root
    disabled
 
