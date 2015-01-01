@@ -171,7 +171,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=0 \
     ro.use_data_netmgrd=true \
     ro.telephony.call_ring.multiple=false \
-    persist.radio.oem_socket=false
+    persist.radio.oem_socket=false \
+    ro.ril.telephony.mqanelements=4
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
