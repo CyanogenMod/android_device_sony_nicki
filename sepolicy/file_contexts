@@ -1,2 +1,4 @@
 /dev/video([0-9])+                              u:object_r:camera_device:s0
 /dev/gemini.*                                   u:object_r:camera_device:s0
+
+/dev/block/bootdevice/by-name/modem             u:object_r:modem_device:s0

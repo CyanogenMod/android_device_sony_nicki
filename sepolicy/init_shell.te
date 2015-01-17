@@ -1,0 +1,2 @@
+allow init_shell baseband_prop:property_service set;
+allow init_shell modem_device:blk_file r_file_perms;

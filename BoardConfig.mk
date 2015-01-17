@@ -76,8 +76,6 @@ TARGET_DISPLAY_USE_RETIRE_FENCE := true
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
-QCOM_FLUENCE_ENABLED := false
-QCOM_ANC_HEADSET_ENABLED := false
 
 # QC AV Enhancements
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -142,13 +140,17 @@ BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
 
 BOARD_SEPOLICY_UNION += \
+       device.te \
        file_contexts \
+       property.te \
+       property_contexts \
+       init_shell.te \
        vold.te \
-       netmgrd.te \
        thermal-engine.te \
        rmt_storage.te \
        mpdecision.te \
        mm-qcamerad.te \
        location.te \
        sdcardd.te \
-       system_app.te
+       system_app.te \
+       system_server.te
