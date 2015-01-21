@@ -144,6 +144,7 @@ BOARD_SEPOLICY_UNION += \
        file_contexts \
        property.te \
        property_contexts \
+       healthd.te \
        init_shell.te \
        vold.te \
        thermal-engine.te \
