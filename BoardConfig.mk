@@ -90,7 +90,8 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_HAS_RIL_LEGACY_PAP := true
 
 # Fm
-#QCOM_FM_ENABLED := true
+QCOM_FM_ENABLED := true
+AUDIO_FEATURE_ENABLED_FM := true
 
 # Wlan
 BOARD_HAS_QCOM_WLAN              := true
