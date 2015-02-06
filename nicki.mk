@@ -44,8 +44,6 @@ PRODUCT_COPY_FILES += \
 # Platform specific overlays
 DEVICE_PACKAGE_OVERLAYS := device/sony/nicki/overlay
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/root/init.target.rc:root/init.target.rc \
