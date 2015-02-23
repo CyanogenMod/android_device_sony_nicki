@@ -1,0 +1,32 @@
+[
+    {
+        "repository": "SlimsRoms/device_sony_common",
+        "target_path": "device/sony/common",
+        "remote": "github",
+        "branch": "lp5.0"
+    },
+    {
+        "repository": "SlimsRoms/device_sony_qcom-common",
+        "target_path": "device/sony/qcom-common",
+        "remote": "github",
+        "branch": "lp5.0"
+    },
+    {
+        "repository": "SlimsRoms/device_sony_msm8960-common",
+        "target_path": "device/sony/msm8960-common",
+        "remote": "github",
+        "branch": "lp5.0"
+    },
+    {
+        "repository": "SlimsRoms/device_qcom_common",
+        "target_path": "device/qcom/common",
+        "remote": "github",
+        "branch": "lp5.0"
+    },
+    {
+        "repository": "CyanogenMod/android_hardware_sony_DASH",
+        "target_path": "hardware/sony/DASH",
+        "remote": "github",
+        "branch": "cm-12.0"
+    },
+] 
