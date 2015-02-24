@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo slim_nicki-eng
-add_lunch_combo slim_nicki-userdebug
+add_lunch_combo omni_nicki-eng
+add_lunch_combo omni_nicki-userdebug
