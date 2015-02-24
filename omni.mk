@@ -13,10 +13,10 @@
 # limitations under the License.
 
 # Enhanced NFC
-$(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/omni/config/nfc_enhanced.mk)
 
-# Inherit some common Slim stuff.
-$(call inherit-product, vendor/slim/config/common_full_phone.mk)
+# Inherit some common omni stuff.
+$(call inherit-product, vendor/omni/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/sony/nicki/nicki.mk)
@@ -26,7 +26,7 @@ TARGET_SCREEN_WIDTH := 480
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := nicki
-PRODUCT_NAME := slim_nicki
+PRODUCT_NAME := omni_nicki
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := nicki
 PRODUCT_MANUFACTURER := Sony
