@@ -12,25 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Enhanced NFC
-$(call inherit-product, vendor/omni/config/nfc_enhanced.mk)
-
-# Inherit some common omni stuff.
-$(call inherit-product, vendor/omni/config/common_full_phone.mk)
-
-# Inherit device configuration
-$(call inherit-product, device/sony/nicki/nicki.mk)
-
+# Boot Animation
 TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit nicki device
+$(call inherit-product, device/sony/nicki/nicki.mk)
+
+# Inherit common Sony resources
+$(call inherit-product, device/sony/common/resources.mk)
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := nicki
-PRODUCT_NAME := omni_nicki
+PRODUCT_NAME := full_nicki
 PRODUCT_BRAND := Sony
-PRODUCT_MODEL := nicki
+PRODUCT_MODEL := Xperia M
 PRODUCT_MANUFACTURER := Sony
-PRODUCT_CHARACTERISTICS := phone
-
-# Release name
-PRODUCT_RELEASE_NAME := Xperiam
