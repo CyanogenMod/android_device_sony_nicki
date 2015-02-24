@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Inherit AOSP device config
-$(call inherit-product, device/sony/taoshan/full_nicki.mk)
+$(call inherit-product, device/sony/nicki/full_nicki.mk)
 
 # Inherit Omni GSM telephony parts
 $(call inherit-product, vendor/omni/config/gsm.mk)
