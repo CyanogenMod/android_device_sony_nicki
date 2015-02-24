@@ -137,7 +137,6 @@ TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,barrier=1,noauto_da_alloc,discard"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 TW_INCLUDE_FUSE_EXFAT := true
-TW_BOARD_CUSTOM_GRAPHICS := ../../../device/sony/nicki/recovery/graphicstwrp.c
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_NO_USB_STORAGE := true
