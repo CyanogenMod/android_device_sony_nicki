@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2013 The Android Open Source Project
+# Copyright (C) 2014 The OmniROM Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +11,16 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-add_lunch_combo full_nicki-userdebug
-add_lunch_combo omni_nicki-userdebug
+# Inherit AOSP device config
+$(call inherit-product, device/sony/nicki/full_nicki.mk)
+
+# Inherit Omni GSM telephony parts
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit from our omni product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Overrides for Omni
+PRODUCT_DEVICE := nicki
+PRODUCT_NAME := omni_nicki

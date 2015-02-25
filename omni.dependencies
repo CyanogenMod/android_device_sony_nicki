@@ -1,0 +1,26 @@
+[
+    {
+        "remote": "omnirom",
+        "repository": "android_device_sony_common",
+        "target_path": "device/sony/common",
+        "revision": "android-5.0"
+    },
+    {
+        "remote": "omnirom",
+        "repository": "android_device_sony_qcom-common",
+        "target_path": "device/sony/qcom-common",
+        "revision": "android-5.0"
+    },
+    {
+        "remote": "omnirom",
+        "repository": "android_device_sony_msm8960-common",
+        "target_path": "device/sony/msm8960-common",
+        "revision": "android-5.0"
+    },
+    {
+        "remote": "github",
+        "repository": "CyanogenMod/android_kernel_sony_msm8x27",
+        "target_path": "kernel/sony/msm8x27",
+        "revision": "cm-12.0"
+    }
+] 
