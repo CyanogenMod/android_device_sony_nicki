@@ -88,7 +88,6 @@ lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 lib/libmercury.so
 lib/libmiscta.so
-lib/libmm-abl.so
 lib/libmm-audio-resampler.so
 lib/libmmcamera_3a_legacy.so
 lib/libmmcamera_faceproc.so
