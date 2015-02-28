@@ -1,5 +1,7 @@
-allow mpdecision socket_device:dir add_name;
-allow mpdecision socket_device:sock_file { create setattr write };
+allow mpdecision socket_device:sock_file create_file_perms;
 
-allow mpdecision system_data_file:dir { write add_name create read open };
-allow mpdecision system_data_file:file { append open read create write };
+allow mpdecision system_data_file:dir create_dir_perms;
+allow mpdecision system_data_file:file create_file_perms;
+
+allow mpdecision mediaserver:dir search;
+allow mpdecision mediaserver:file r_file_perms;
