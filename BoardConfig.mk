@@ -20,9 +20,6 @@ include vendor/sony/nicki/BoardConfigVendor.mk
 
 include device/qcom/sepolicy/sepolicy.mk
 
-# inherit from Sony common
-include device/sony/common/BoardConfigCommon.mk
-
 # inherit from msm8960-common
 include device/sony/msm8960-common/BoardConfigCommon.mk
 
@@ -31,19 +28,12 @@ USE_CAMERA_STUB := false
 TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8960
-TARGET_CPU_VARIANT := krait
 BOARD_VENDOR_PLATFORM := nicki
 TARGET_BOOTLOADER_BOARD_NAME := qcom
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE := C1904,C1905,C2004,C2005,nicki
 
-# Cflags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
-COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Kernel
@@ -66,15 +56,11 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_MAX_PARTITIONS := 27
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# QCOM Hardware
-BOARD_USES_QCOM_HARDWARE := true
-
 # QCOM Display and Graphics
 TARGET_USES_QCOM_BSP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 # Audio
-BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 
 # QC AV Enhancements
@@ -108,8 +94,6 @@ WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH_QCOM := true
-BLUETOOTH_HCI_USE_MCT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
 # Recovery
@@ -123,14 +107,6 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
 TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
-
-# Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
-
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
-
-MALLOC_IMPL := dlmalloc
 
 TARGET_USES_LOGD := false
 
