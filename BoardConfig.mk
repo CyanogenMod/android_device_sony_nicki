@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BOARD_EGL_CFG := device/sony/nicki/rootdir/system/lib/egl/egl.cfg
-
 # inherit from msm8960-common
 include device/sony/msm8960-common/BoardConfigCommon.mk
 
