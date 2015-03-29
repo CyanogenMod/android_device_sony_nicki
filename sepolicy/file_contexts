@@ -2,3 +2,5 @@
 /dev/gemini.*                                   u:object_r:camera_device:s0
 
 /dev/block/bootdevice/by-name/modem             u:object_r:modem_device:s0
+
+/sys/class/timed_output/vibrator/level          u:object_r:vibeamp_sysfs:s0

@@ -104,6 +104,8 @@ TARGET_USES_LOGD := false
 
 BOARD_USES_LEGACY_MMAP := true
 
+BOARD_HARDWARE_CLASS := device/sony/nicki/cmhw/
+
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
@@ -113,6 +115,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
        device.te \
        file_contexts \
+       file.te \
        property.te \
        property_contexts \
        healthd.te \
