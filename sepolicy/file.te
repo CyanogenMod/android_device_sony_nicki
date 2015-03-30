@@ -1,1 +1,2 @@
 type vibeamp_sysfs, sysfs_type, file_type;
+type kcal_sysfs, fs_type, sysfs_type;
