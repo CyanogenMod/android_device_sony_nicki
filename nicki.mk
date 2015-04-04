@@ -96,7 +96,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
-    libnl_2 \
     libtinyxml
 
 PRODUCT_PACKAGES += \
@@ -116,8 +115,6 @@ PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 PRODUCT_PACKAGES += \
-    alsa.msm8960 \
-    audio_policy.msm8960 \
     audio.primary.msm8960 \
     audio.a2dp.default \
     audio.usb.default \
@@ -136,12 +133,7 @@ PRODUCT_PACKAGES += \
     extract_elf_ramdisk
 
 PRODUCT_PACKAGES += \
-    librs_jni \
-    com.android.future.usb.accessory
-
-PRODUCT_PACKAGES += \
-    setup_fs \
-    e2fsck
+    setup_fs
 
 PRODUCT_PACKAGES += \
     gps.msm8960 \
@@ -159,13 +151,11 @@ PRODUCT_PACKAGES += \
     FMRecord
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ril.transmitpower=true \
     persist.radio.apm_sim_not_pwdn=1 \
     DEVICE_PROVISIONED=1 \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     telephony.lteOnCdmaDevice=0 \
-    ro.use_data_netmgrd=true \
     ro.telephony.call_ring.multiple=false \
     persist.radio.oem_socket=false \
     ro.ril.telephony.mqanelements=4
@@ -173,7 +163,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
     persist.fuse_sdcard=true \
-    ro.cwm.enable_key_repeat=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     ro.qualcomm.bt.hci_transport=smd \
@@ -189,11 +178,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true \
     ro.qc.sdk.audio.ssr=false \
     ro.qc.sdk.audio.fluencetype=none \
-    lpa.decode=true \
     audio.gapless.playback.disable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.gps.qmienabled=true \
     ro.qc.sdk.izat.premium_enabled=1 \
     ro.qc.sdk.izat.service_mask=0x5 \
     persist.gps.qc_nlp_in_use=0 \
@@ -210,8 +197,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-PRODUCT_PACKAGES += Torch
 
 PRODUCT_PACKAGES += libtime_genoff
 

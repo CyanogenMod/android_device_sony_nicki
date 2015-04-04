@@ -64,9 +64,6 @@ BOARD_USES_QC_TIME_SERVICES := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# Legacy Ril
-BOARD_HAS_RIL_LEGACY_PAP := true
-
 # Fm
 QCOM_FM_ENABLED := true
 AUDIO_FEATURE_ENABLED_FM := true
@@ -93,8 +90,6 @@ TARGET_RECOVERY_FSTAB = device/sony/nicki/rootdir/root/fstab.qcom
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/nicki/recovery/recovery_keys.c
-TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
