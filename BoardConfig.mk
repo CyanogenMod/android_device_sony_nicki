@@ -115,15 +115,16 @@ BOARD_SEPOLICY_UNION += \
        property_contexts \
        healthd.te \
        init_shell.te \
-       vold.te \
-       thermal-engine.te \
-       rmt_storage.te \
+       kernel.te \
        mediaserver.te \
        mm-qcamerad.te \
        mpdecision.te \
        location.te \
+       rmt_storage.te \
        sdcardd.te \
        system_app.te \
-       system_server.te
+       system_server.te \
+       thermal-engine.te \
+       vold.te
 
 -include vendor/sony/nicki/BoardConfigVendor.mk
