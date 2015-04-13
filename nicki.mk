@@ -158,7 +158,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=0 \
     ro.telephony.call_ring.multiple=false \
     persist.radio.oem_socket=false \
-    ro.ril.telephony.mqanelements=4
+    ro.ril.telephony.mqanelements=4 \
+    persist.data.netmgrd.qos.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
@@ -177,8 +178,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.lowlatency.rec=false \
     media.aac_51_output_enabled=true \
     ro.qc.sdk.audio.ssr=false \
-    ro.qc.sdk.audio.fluencetype=none \
-    audio.gapless.playback.disable=true
+    ro.qc.sdk.audio.fluencetype=none
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=1 \
