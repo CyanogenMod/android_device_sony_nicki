@@ -68,6 +68,10 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 QCOM_FM_ENABLED := true
 AUDIO_FEATURE_ENABLED_FM := true
 
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+BOARD_RIL_CLASS := ../../../device/sony/nicki/ril/
+
 # Wlan
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
