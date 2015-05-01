@@ -124,7 +124,6 @@ lib/libpin-cache.so
 lib/libprofiler_msmadc.so
 lib/libqcci_adc.so
 lib/libqcci_legacy.so
-lib/libqc-opt.so:vendor/lib/libqc-opt.so
 lib/libqdi.so
 lib/libqdp.so
 lib/libqmi_client_qmux.so
@@ -146,12 +145,10 @@ vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libGLESv2S3D_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/libadreno_utils.so
-vendor/lib/libc2d2_a3xx.so
+vendor/lib/libc2d30-a3xx.so
 vendor/lib/libC2D2.so
-vendor/lib/libc2d2_z180.so
 vendor/lib/libCB.so
 vendor/lib/libdiag.so
 vendor/lib/libdrmdecrypt.so
@@ -159,10 +156,10 @@ vendor/lib/libgeofence.so
 vendor/lib/libgsl.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/libllvm-a3xx.so
+vendor/lib/libllvm-qcom.so
 vendor/lib/liblocationservice.so
 vendor/lib/libOpenCL.so
-vendor/lib/libOpenVG.so
+vendor/lib/libqc-opt.so
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
