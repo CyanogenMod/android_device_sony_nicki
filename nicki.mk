@@ -260,7 +260,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
-PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Product attributes
