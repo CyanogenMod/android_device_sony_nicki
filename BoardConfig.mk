@@ -95,8 +95,6 @@ TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
 TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
 
-TARGET_USES_LOGD := false
-
 BOARD_HARDWARE_CLASS := device/sony/nicki/cmhw/
 
 # Sepolicy
