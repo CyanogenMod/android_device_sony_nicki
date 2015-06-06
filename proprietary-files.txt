@@ -57,7 +57,6 @@ lib/hw/lights.msm8960.so:lib/hw/lights.vendor.msm8960.so
 lib/libacdbloader.so
 lib/libadsprpc.so
 lib/libaudcal.so
-lib/libbtnv.so
 lib/libchromatix_s5k4e1_2nd_default_video_1.so
 lib/libchromatix_s5k4e1_2nd_default_video.so
 lib/libchromatix_s5k4e1_2nd_preview_1.so
@@ -147,6 +146,7 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/libadreno_utils.so
+vendor/lib/libbtnv.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libC2D2.so
 vendor/lib/libCB.so
