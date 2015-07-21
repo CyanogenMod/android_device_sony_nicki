@@ -50,8 +50,10 @@ on boot
     chown bluetooth bluetooth /proc/bluetooth/sleep/proto
     chown system system /sys/module/sco/parameters/disable_esco
     chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
+    chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
     chmod 0660 /sys/module/bluetooth_power/parameters/power
     chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
+    chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
     chown bluetooth bluetooth /dev/ttyHS0
@@ -347,9 +349,8 @@ service dhcpcd_bnep4 /system/bin/dhcpcd -BKLG
 
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
-    user root
+    user system
     group system
-    disabled
     oneshot
 
 on property:crypto.driver.load=1
