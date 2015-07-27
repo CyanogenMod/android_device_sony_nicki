@@ -161,6 +161,10 @@ on post-fs-data
 
     write /sys/module/subsystem_restart/parameters/restart_level 1
 
+    #Create FM dir for patchdownloader
+    mkdir /data/misc/fm 0770 system system
+    chmod 0770 /data/misc/fm
+
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
