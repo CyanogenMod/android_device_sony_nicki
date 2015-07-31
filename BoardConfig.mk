@@ -86,7 +86,7 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
 # Recovery
-TARGET_RECOVERY_FSTAB = device/sony/nicki/rootdir/root/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
@@ -94,6 +94,9 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
 TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
+
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 BOARD_HARDWARE_CLASS := device/sony/nicki/cmhw/
 
