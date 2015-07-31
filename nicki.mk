@@ -12,14 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/sony/nicki/nicki-vendor.mk)
 $(call inherit-product, device/sony/common/resources.mk)
-$(call inherit-product, device/sony/msm8960-common/msm8960.mk)
 
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
@@ -171,7 +167,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.wfd.virtual=0 \
     ro.qualcomm.bt.hci_transport=smd \
     debug.composition.type=dyn \
-    persist.sys.isUsbOtgEnabled=true
+    persist.sys.isUsbOtgEnabled=true \
+    ro.vendor.extension_library=libqti-perfd-client.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.audio.init=complete \
@@ -208,3 +205,4 @@ PRODUCT_PACKAGES += libtime_genoff
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_CHARACTERISTICS := phone
 
+$(call inherit-product, device/sony/msm8960-common/msm8960.mk)
