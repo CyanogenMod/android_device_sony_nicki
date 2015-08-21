@@ -12,16 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from msm8960-common
-include device/sony/msm8960-common/BoardConfigCommon.mk
+# Inherit from Sony common
+include device/sony/common/BoardConfigCommon.mk
 
 USE_CAMERA_STUB := false
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
+# Architecture
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := krait
 
 # Platform
+TARGET_BOARD_PLATFORM := msm8960
 BOARD_VENDOR_PLATFORM := nicki
 TARGET_BOOTLOADER_BOARD_NAME := qcom
+
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
+MALLOC_IMPL := dlmalloc
+
+TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
 
 # OTA Assert
 TARGET_OTA_ASSERT_DEVICE := C1904,C1905,C2004,C2005,nicki
@@ -49,11 +62,24 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VOLD_MAX_PARTITIONS := 27
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
+# Font expansion
+EXTENDED_FONT_FOOTPRINT := true
+
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+
 # QCOM Display and Graphics
+USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+TARGET_USES_C2D_COMPOSITION := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 # Audio
+BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
+
+# Lights HAL
+TARGET_PROVIDES_LIBLIGHT := true
 
 # QC AV Enhancements
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -64,9 +90,19 @@ BOARD_USES_QC_TIME_SERVICES := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Power HAL
+TARGET_POWERHAL_VARIANT := qcom
+CM_POWERHAL_EXTENSION := qcom
+
 # Fm
 QCOM_FM_ENABLED := true
 AUDIO_FEATURE_ENABLED_FM := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
 # Wlan
 BOARD_HAS_QCOM_WLAN              := true
@@ -81,9 +117,6 @@ WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME          := "wlan"
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
