@@ -60,6 +60,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/rootdir/system/etc/snd_soc_msm/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar
 
+# Media codecs
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    $(LOCAL_PATH)/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/thermald-8930.conf:system/etc/thermald-8930.conf
 
@@ -128,11 +135,45 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     memtrack.msm8960
 
+# Camera wrapper
 PRODUCT_PACKAGES += \
-    extract_elf_ramdisk
+    camera.qcom
+
+# Lights wrapper
+PRODUCT_PACKAGES += \
+    lights.msm8960
+
+# Media
+PRODUCT_PACKAGES += \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
+
+# Omx
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libc2dcolorconvert \
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libstagefrighthw
+
+# Power
+PRODUCT_PACKAGES += \
+    power.qcom
 
 PRODUCT_PACKAGES += \
-    setup_fs
+    qcom.fmradio \
+    libqcomfm_jni \
+    FM2 \
+    FMRecord
 
 PRODUCT_PACKAGES += \
     gps.msm8960 \
@@ -141,13 +182,26 @@ PRODUCT_PACKAGES += \
     izat.conf
 
 PRODUCT_PACKAGES += \
-    wcnss_service
+    wcnss_service \
+    libQWiFiSoftApCfg \
+    libqsap_sdk \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
-    qcom.fmradio \
-    libqcomfm_jni \
-    FM2 \
-    FMRecord
+    extract_elf_ramdisk
+
+PRODUCT_PACKAGES += \
+    setup_fs
+
+# WiFi
+PRODUCT_PROPERTY_OVERRIDES += \
+    wlan.driver.ath=0 \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
@@ -157,7 +211,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=0 \
     ro.telephony.call_ring.multiple=false \
     persist.radio.oem_socket=false \
-    ro.ril.telephony.mqanelements=4 \
     persist.data.netmgrd.qos.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -166,6 +219,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     ro.qualcomm.bt.hci_transport=smd \
+    persist.hwc.mdpcomp.enable=true \
     debug.composition.type=dyn \
     persist.sys.isUsbOtgEnabled=true \
     ro.vendor.extension_library=libqti-perfd-client.so
@@ -204,5 +258,3 @@ PRODUCT_PACKAGES += libtime_genoff
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_CHARACTERISTICS := phone
-
-$(call inherit-product, device/sony/msm8960-common/msm8960.mk)
