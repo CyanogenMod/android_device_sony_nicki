@@ -64,6 +64,8 @@ BOARD_RIL_CLASS := ../../../device/sony/nicki/ril/
 # Font expansion
 EXTENDED_FONT_FOOTPRINT := true
 
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 

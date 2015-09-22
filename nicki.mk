@@ -196,6 +196,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsony
 
+# healthd libaray expanded for mode charger
+PRODUCT_PACKAGES += \
+    libhealthd.msm
+
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
