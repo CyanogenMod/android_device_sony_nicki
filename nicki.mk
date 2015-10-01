@@ -47,7 +47,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/rootdir/root/ueventd.qcom.rc:root/ueventd.qcom.rc \
     $(LOCAL_PATH)/rootdir/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
-    $(LOCAL_PATH)/rootdir/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc
+    $(LOCAL_PATH)/rootdir/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    $(LOCAL_PATH)/rootdir/root/init.qcom.power.rc:root/init.qcom.power.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.class_main.sh:root/init.class_main.sh \
