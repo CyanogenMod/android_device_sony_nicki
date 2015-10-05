@@ -6,7 +6,6 @@ bin/gsiff_daemon
 bin/hci_qcomm_init
 bin/irsc_util
 bin/ks
-bin/led_deamon
 bin/mm-qcamera-daemon
 bin/mpdecision
 bin/netmgrd
@@ -53,7 +52,6 @@ etc/firmware/wlan/prima/WCNSS_cfg.dat
 lib/hw/nfc.msm8960.so
 lib/hw/sensors.default.so
 lib/hw/camera.msm8960.so:lib/hw/camera.vendor.msm8960.so
-lib/hw/lights.msm8960.so:lib/hw/lights.vendor.msm8960.so
 lib/libacdbloader.so
 lib/libadsprpc.so
 lib/libaudcal.so

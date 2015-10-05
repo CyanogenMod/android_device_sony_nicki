@@ -139,7 +139,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.qcom
 
-# Lights wrapper
+# Lights Hal
 PRODUCT_PACKAGES += \
     lights.msm8960
 

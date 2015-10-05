@@ -230,11 +230,6 @@ on post-fs-data
 
     chown system compass /data/misc/sensor
 
-service led-deamon /system/bin/led_deamon
-    class main
-    user system
-    group system
-
 service sensord /system/bin/sensord
     user system
     group compass misc input
