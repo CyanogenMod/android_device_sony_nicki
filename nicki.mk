@@ -140,7 +140,7 @@ PRODUCT_PACKAGES += \
     camera.qcom \
     Snap
 
-# Lights wrapper
+# Lights Hal
 PRODUCT_PACKAGES += \
     lights.msm8960
 
