@@ -2,7 +2,6 @@ bin/btnvtool
 bin/fm_qsoc_patches
 bin/hci_qcomm_init
 bin/irsc_util
-bin/led_deamon
 bin/mm-qcamera-daemon
 bin/mpdecision
 bin/netmgrd
@@ -48,7 +47,6 @@ etc/permissions/com.google.widevine.software.drm.xml
 lib/hw/nfc.msm8960.so
 lib/hw/sensors.default.so
 lib/hw/camera.msm8960.so:lib/hw/camera.vendor.msm8960.so
-lib/hw/lights.msm8960.so:lib/hw/lights.vendor.msm8960.so
 lib/libacdbloader.so
 lib/libadsprpc.so
 lib/libaudcal.so
