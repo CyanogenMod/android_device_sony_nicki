@@ -112,8 +112,8 @@
     <!-- If this is true, the screen will come on when you plug/unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
-    <!-- If this is true, the IME will be shown at screen on for keyguard password view -->
-    <bool name="kg_show_ime_at_screen_on">false</bool>
+    <!-- If this is true, the IME will be shown at screen on for keyguard password view
+    <bool name="kg_show_ime_at_screen_on">false</bool> -->
 
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
@@ -279,8 +279,8 @@
          stay in memory.  A low value will keep more processes in memory but may cause
          thrashing if set too low.  Overrides the default value chosen by ActivityManager
          based on screen size and total memory for the largest lowmemorykiller bucket, and
-         scaled proportionally to the smaller buckets.  -1 keeps the default. -->
-    <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">122880</integer>
+         scaled proportionally to the smaller buckets.  -1 keeps the default.
+    <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">122880</integer> -->
 
     <!-- Enable the option to check proximity sensor when deciding whether to
          turn the screen on
