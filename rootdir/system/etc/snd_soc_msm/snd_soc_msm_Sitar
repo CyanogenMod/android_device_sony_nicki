@@ -3560,9 +3560,9 @@ SectionDevice
 		'DEC2 MUX':0:ADC3
 		'SLIM_0_TX Channels':0:Two
 		'DEC1 Volume':1:82
-		'ADC1 Volume':1:82
+		'ADC1 Volume':1:72
 		'DEC2 Volume':1:82
-		'ADC3 Volume':1:82
+		'ADC3 Volume':1:72
 	EndSequence
 
 	DisableSequence
