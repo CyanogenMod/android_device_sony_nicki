@@ -196,6 +196,7 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.disableWifiApFirmwareReload=true \
     wlan.driver.ath=0 \
     wifi.interface=wlan0
 
