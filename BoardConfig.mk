@@ -151,9 +151,11 @@ BOARD_SEPOLICY_UNION += \
        kernel.te \
        mediaserver.te \
        mm-qcamerad.te \
+       led_deamon.te \
        mpdecision.te \
        location.te \
        sdcardd.te \
+       sensors.te \
        system_app.te \
        system_server.te \
        thermal-engine.te \

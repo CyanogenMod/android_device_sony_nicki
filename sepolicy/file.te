@@ -1,2 +1,4 @@
 type vibeamp_sysfs, sysfs_type, file_type;
 type kcal_sysfs, fs_type, sysfs_type;
+
+type led_deamon_data_file, file_type;
