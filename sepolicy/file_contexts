@@ -5,3 +5,10 @@
 
 /sys/class/timed_output/vibrator/level          u:object_r:vibeamp_sysfs:s0
 /sys/devices/platform/mdp.525057/kcal           u:object_r:kcal_sysfs:s0
+
+/data/LED_deamon.rd                             u:object_r:led_deamon_data_file:s0
+/data/LED_deamon.wd                             u:object_r:led_deamon_data_file:s0
+/data/misc/sensor(/.*)?                         u:object_r:sensors_data_file:s0
+
+/system/bin/sensord                             u:object_r:sensors_exec:s0
+/system/bin/led_deamon                          u:object_r:led_deamon_exec:s0
