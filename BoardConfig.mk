@@ -140,25 +140,4 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     device/sony/nicki/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-       device.te \
-       file_contexts \
-       file.te \
-       property.te \
-       property_contexts \
-       healthd.te \
-       init_shell.te \
-       kernel.te \
-       mediaserver.te \
-       mm-qcamerad.te \
-       led_deamon.te \
-       mpdecision.te \
-       location.te \
-       sdcardd.te \
-       sensors.te \
-       system_app.te \
-       system_server.te \
-       thermal-engine.te \
-       vold.te
-
 -include vendor/sony/nicki/BoardConfigVendor.mk
