@@ -246,10 +246,10 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
         group camera system inet input graphics net_bt_stack
 
 #start GNSS/Sensor interface daemon
-service gsiff_daemon /system/bin/gsiff_daemon
-    class late_start
-    user system
-    group gps net_raw
+#service gsiff_daemon /system/bin/gsiff_daemon
+#    class late_start
+#    user system
+#    group gps net_raw
 
 service thermald /system/bin/thermald
    class main
