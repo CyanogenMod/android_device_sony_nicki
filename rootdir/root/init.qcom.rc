@@ -43,6 +43,8 @@ on init
     symlink /storage/usbdisk         /usbdisk
     symlink /storage/usbdisk         /mnt/usbdisk
 
+    export LD_PRELOAD "libsony.so"
+
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
