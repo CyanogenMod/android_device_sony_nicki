@@ -85,8 +85,6 @@ on boot
 
     setprop wifi.interface wlan0
 
-    setprop ro.telephony.call_ring.multiple false
-
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     # Change permissions for fps_level nodes
