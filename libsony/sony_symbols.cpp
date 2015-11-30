@@ -36,7 +36,7 @@ extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl6Ev() { }
 extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl7Ev() { }
 extern "C" void _ZN7android16SortedVectorImpl25reservedSortedVectorImpl8Ev() { }
 
-extern int _ZN7android6Parcel13writeString16EPKDsj(const char16_t* str, size_t len);
-int _ZN7android6Parcel13writeString16EPKtj(uint16_t* str, size_t len){
-    return _ZN7android6Parcel13writeString16EPKDsj((const char16_t*)str, len);
+extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
+extern "C" int _ZN7android6Parcel13writeString16EPKtj() {
+    return _ZN7android6Parcel13writeString16EPKDsj();
 }

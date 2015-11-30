@@ -125,7 +125,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
-TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.c
+TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.cpp
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
