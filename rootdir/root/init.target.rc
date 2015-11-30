@@ -51,7 +51,6 @@ on fs
     # TA support
     class_start trimarea
     start tad_static
-    exec /sbin/wait4tad_static
     exec /system/bin/taimport
     
     start ta_qmi_service
@@ -60,8 +59,6 @@ on post-fs
     mkdir /dev/socket/suntory 0755 system system
 
 on boot
-   write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
-   write /sys/devices/i2c-3/3-005b/update_fw 1
    start qcamerasvr
 
     chown system system /sys/class/led/fih_led/control
@@ -245,12 +242,6 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
         user camera
         group camera system inet input graphics net_bt_stack
 
-#start GNSS/Sensor interface daemon
-#service gsiff_daemon /system/bin/gsiff_daemon
-#    class late_start
-#    user system
-#    group gps net_raw
-
 service thermald /system/bin/thermald
    class main
    user root
@@ -280,7 +271,9 @@ service tad /sbin/tad_static /dev/block/mmcblk0 1,16
     class trimarea
     user root
     group root 	
-    socket tad stream 666 system system   
+    socket tad stream 666 system system
+    class core
+    seclabel u:r:tad_static:s0
 
 service updatemiscta /system/bin/updatemiscta
     class main
@@ -295,4 +288,6 @@ service wcnss-service /system/bin/wcnss_service
 
 service bbset /system/bin/sh /system/etc/init.qcom.baseband.sh
      class late_start
+     user root
+     seclabel u:r:qti_init_shell:s0
      oneshot
