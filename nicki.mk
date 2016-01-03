@@ -177,10 +177,8 @@ PRODUCT_PACKAGES += \
     FMRecord
 
 PRODUCT_PACKAGES += \
-    gps.msm8960 \
-    gps.conf \
-    sap.conf \
-    izat.conf
+    FMRadio \
+    libfmjni
 
 PRODUCT_PACKAGES += \
     wcnss_service \
