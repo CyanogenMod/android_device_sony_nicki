@@ -75,6 +75,7 @@ lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
 lib/libdsi_netctrl.so
+lib/libdsnetutils.so
 lib/libdsutils.so
 lib/libExtendedExtractor.so
 lib/libgemini.so
@@ -129,6 +130,7 @@ lib/libqdi.so
 lib/libqdp.so
 lib/libqmi_client_qmux.so
 lib/libqmi_csvt_srvc.so
+lib/libqminvapi.so
 lib/libqmiservices.so
 lib/libqmi.so
 lib/libQSEEComAPI.so
