@@ -254,7 +254,9 @@ PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-PRODUCT_PACKAGES += libtime_genoff
+PRODUCT_PACKAGES += \
+    libtime_genoff \
+    com.google.widevine.software.drm
 
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

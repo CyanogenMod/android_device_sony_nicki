@@ -50,6 +50,8 @@ etc/firmware/vidc.b03
 etc/firmware/vidcfw.elf
 etc/firmware/vidc.mdt
 etc/firmware/wlan/prima/WCNSS_cfg.dat
+etc/permissions/com.google.widevine.software.drm.xml
+-framework/com.google.widevine.software.drm.jar
 lib/hw/nfc.msm8960.so
 lib/hw/sensors.default.so
 lib/hw/camera.msm8960.so:lib/hw/camera.vendor.msm8960.so
@@ -140,6 +142,7 @@ lib/libsurround_proc.so
 lib/libta.so
 lib/libtzplayready.so
 vendor/firmware/libpn544_fw.so
+vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -174,4 +177,3 @@ vendor/lib/libulp2.so
 vendor/lib/libwvdrm_L3.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L3.so
-vendor/lib/mediadrm/libwvdrmengine.so
