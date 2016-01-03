@@ -31,17 +31,10 @@ import init.target.rc
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
-    mkdir /storage/sdcard1 0775 system system
-    mkdir /storage/usbdisk 0775 system system
 
      # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
-
-    symlink /storage/sdcard1         /ext_card
-    symlink /storage/sdcard1         /mnt/ext_card
-    symlink /storage/usbdisk         /usbdisk
-    symlink /storage/usbdisk         /mnt/usbdisk
 
     export LD_PRELOAD "libsony.so"
 
@@ -212,6 +205,10 @@ on post-fs-data
     mkdir /data/audio/ 0770 media audio
 
     setprop vold.post_fs_data_done 1
+
+on property:vold.decrypt=trigger_restart_framework
+    start config_bt_addr
+    start wcnss-service
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd

@@ -219,7 +219,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bt.hci_transport=smd \
     persist.hwc.mdpcomp.enable=true \
     debug.composition.type=dyn \
-    persist.sys.isUsbOtgEnabled=true \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
