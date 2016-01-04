@@ -171,14 +171,14 @@ PRODUCT_PACKAGES += \
     power.qcom
 
 PRODUCT_PACKAGES += \
-    qcom.fmradio \
-    libqcomfm_jni \
-    FM2 \
-    FMRecord
-
-PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
+
+PRODUCT_PACKAGES += \
+    gps.msm8960 \
+    gps.conf \
+    sap.conf \
+    izat.conf
 
 PRODUCT_PACKAGES += \
     wcnss_service \
