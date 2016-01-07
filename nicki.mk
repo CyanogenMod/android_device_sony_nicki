@@ -191,9 +191,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
-    extract_elf_ramdisk
-
-PRODUCT_PACKAGES += \
     libsony
 
 # healthd libaray expanded for mode charger
