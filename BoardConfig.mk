@@ -1,4 +1,4 @@
-# Copyright 2013 The Android Open Source Project
+# Copyright 2013-2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -128,6 +128,7 @@ TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
+BOARD_SONY_INIT_BOARD := device/sony/nicki/init_sony/init_board_nicki.cpp
 
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
