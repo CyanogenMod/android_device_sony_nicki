@@ -75,7 +75,6 @@ lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
 lib/libdsi_netctrl.so
-lib/libdsnetutils.so
 lib/libdsutils.so
 lib/libExtendedExtractor.so
 lib/libgemini.so
