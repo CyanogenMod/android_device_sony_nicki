@@ -197,6 +197,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libhealthd.msm
 
+PRODUCT_PACKAGES += \
+    Snap
+
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
