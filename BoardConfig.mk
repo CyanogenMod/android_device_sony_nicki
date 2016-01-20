@@ -76,7 +76,7 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-TARGET_GPS_HAL_PATH := device/sony/nicki/gps
+USE_DEVICE_SPECIFIC_GPS := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
