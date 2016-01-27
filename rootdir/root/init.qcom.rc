@@ -214,7 +214,7 @@ on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
 service qcom-c_main-sh /system/bin/sh /init.class_main.sh
-    class main
+    class late_start
     user root
     oneshot
 
