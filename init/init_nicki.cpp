@@ -69,6 +69,8 @@ static int read_file2(const char *fname, char *data, int max_size)
 
 void ds_properties()
 {
+        property_set("ro.telephony.ril.config", "simactivation,sim2gsmonly");
+        property_set("ro.telephony.default_network", "0,1");
         property_set("persist.radio.multisim.config", "dsds");
         property_set("persist.radio.dont_use_dsd", "true");
 }
@@ -94,11 +96,11 @@ void vendor_load_properties()
         property_set("ro.build.description", "C1904-user 4.3 2.22.J.1.18 eng.user.20140509.125022 test-keys");
         property_set("ro.build.fingerprint", "Sony/C1904/C1904:4.3/15.4.A.1.9/eng.user.20140509.125022:user/release-keys");
     } else if (strstr(modelnumber, "C2005")) {
-//        ds_properties();
+        ds_properties();
         property_set("ro.build.description", "C2005-user 4.3 2.23.J.1.14 eng.user.20140430.172301 test-keys");
         property_set("ro.build.fingerprint", "Sony/C2005/C2005:4.3/15.5.A.1.5/eng.user.20140430.172301:user/release-keys");
     } else if (strstr(modelnumber, "C2004")) {
-//        ds_properties();
+        ds_properties();
         property_set("ro.build.description", "C2004-user 4.3 2.23.J.1.14 eng.user.20140430.172301 test-keys");
         property_set("ro.build.fingerprint", "Sony/C2004/C2004:4.3/15.5.A.1.5/eng.user.20140430.172301:user/release-keys");
     };
