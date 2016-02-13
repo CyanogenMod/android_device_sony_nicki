@@ -100,6 +100,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
+ifeq ($(TARGET_BUILD_VARIANT),user)
+    NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access.xml
+else
+    NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access_debug.xml
+endif
+
+PRODUCT_COPY_FILES += \
+    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
@@ -111,15 +120,6 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag \
     com.android.nfc_extras
-
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := device/sony/nicki/rootdir/system/etc/nfcee_access_debug.xml
-endif
-
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 PRODUCT_PACKAGES += \
     audio.primary.msm8960 \
@@ -136,9 +136,10 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     memtrack.msm8960
 
-# Camera wrapper
+# Camera
 PRODUCT_PACKAGES += \
-    camera.qcom
+    camera.qcom \
+    Snap
 
 # Lights wrapper
 PRODUCT_PACKAGES += \
@@ -191,7 +192,12 @@ PRODUCT_PACKAGES += \
     libhealthd.msm
 
 PRODUCT_PACKAGES += \
-    Snap
+    libtime_genoff \
+    com.google.widevine.software.drm
+
+# Sensors
+PRODUCT_PACKAGES += \
+    sensord
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -250,10 +256,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-PRODUCT_PACKAGES += \
-    libtime_genoff \
-    com.google.widevine.software.drm
 
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
