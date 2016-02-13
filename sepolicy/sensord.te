@@ -10,3 +10,4 @@ allow sensord system_data_file:fifo_file create_file_perms;
 allow sensord sensord_data_file:fifo_file create_file_perms;
 allow sensord sensord_data_file:file create_file_perms;
 allow sensord sensord_data_file:dir create_dir_perms;
+allow sensord self:capability { dac_read_search dac_override fowner fsetid };

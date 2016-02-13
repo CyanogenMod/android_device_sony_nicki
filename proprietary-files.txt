@@ -14,7 +14,6 @@ bin/qmuxd
 bin/qseecomd
 bin/rild
 bin/rmt_storage
-bin/sensord
 bin/taimport
 bin/ta_qmi_service
 bin/thermald
