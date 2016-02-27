@@ -1,11 +1,7 @@
 bin/btnvtool
-bin/ds_fmc_appd
-bin/efsks
 bin/fm_qsoc_patches
-bin/gsiff_daemon
 bin/hci_qcomm_init
 bin/irsc_util
-bin/ks
 bin/led_deamon
 bin/mm-qcamera-daemon
 bin/mpdecision
@@ -21,8 +17,6 @@ bin/time_daemon
 bin/updatemiscta
 etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
-etc/firmware/cyttsp_8064_mtp.hex
-etc/firmware/cyttsp_8960_cdp.hex
 etc/firmware/dxhdcp2.b00
 etc/firmware/dxhdcp2.b01
 etc/firmware/dxhdcp2.b02
@@ -67,7 +61,6 @@ lib/libchromatix_s5k4e1_default_video.so
 lib/libchromatix_s5k4e1_preview_1.so
 lib/libchromatix_s5k4e1_preview.so
 lib/libcredential-manager-service.so
-lib/libcsd-client.so
 lib/libDivxDrm.so
 lib/lib_dlb_msd.so
 lib/libdrmdiag.so
@@ -83,7 +76,6 @@ lib/libidl.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so
 lib/libkeyctrl.so
-lib/liblights-core.so
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 lib/libmercury.so
@@ -120,8 +112,6 @@ lib/libmorpho_scene_detector.so
 lib/libmorpho_super_resolution.so
 lib/libnetmgr.so
 lib/liboemcamera.so
-lib/libpin-cache.so
-lib/libprofiler_msmadc.so
 lib/libqcci_adc.so
 lib/libqcci_legacy.so
 lib/libqdi.so
@@ -136,11 +126,8 @@ lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libril.so
 lib/librmp.so
-lib/libsensor1.so
 lib/libSHIMDivxDrm.so
-lib/libsurround_proc.so
 lib/libta.so
-lib/libtzplayready.so
 vendor/firmware/libpn544_fw.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/egl/eglsubAndroid.so
@@ -177,3 +164,4 @@ vendor/lib/libulp2.so
 vendor/lib/libwvdrm_L3.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/mediadrm/libwvdrmengine.so
