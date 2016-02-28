@@ -252,6 +252,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true
+
 PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
 PRODUCT_AAPT_CONFIG := normal hdpi
