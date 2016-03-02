@@ -32,6 +32,7 @@ TARGET_BOOTLOADER_BOARD_NAME := qcom
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Use dlmalloc instead of jemalloc for mallocs
 MALLOC_IMPL := dlmalloc
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
@@ -55,16 +56,8 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2235547136
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Vold
-BOARD_VOLD_MAX_PARTITIONS := 27
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
+# RIL class
 BOARD_RIL_CLASS := ../../../device/sony/nicki/ril/
-
-# Font expansion
-EXTENDED_FONT_FOOTPRINT := true
-
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.nicki
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -76,6 +69,7 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
+# GPS
 USE_DEVICE_SPECIFIC_GPS := true
 
 # Audio
@@ -85,9 +79,6 @@ QCOM_CSDCLIENT_ENABLED := false
 
 # Lights HAL
 TARGET_PROVIDES_LIBLIGHT := true
-
-# QC AV Enhancements
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # QC Time
 BOARD_USES_QC_TIME_SERVICES := true
@@ -111,7 +102,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/nicki/bluetooth
 
 # Wlan
 BOARD_HAS_QCOM_WLAN              := true
-BOARD_HAS_QCOM_WLAN_SDK          := true
 BOARD_WLAN_DEVICE                := qcwcn
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
@@ -125,7 +115,6 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/nicki/rootdir/root/fstab.qcom
-BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/nicki/custombootimg.mk
 
@@ -133,9 +122,12 @@ TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_nicki
 TARGET_LIBINIT_DEFINES_FILE := device/sony/nicki/init/init_nicki.cpp
 
+# Offline charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.nicki
 
+# CMHW
 BOARD_HARDWARE_CLASS := device/sony/nicki/cmhw/
 
 # Sepolicy
