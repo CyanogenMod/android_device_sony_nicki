@@ -14,7 +14,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/sony/nicki/nicki-vendor.mk)
-$(call inherit-product, device/sony/common/resources.mk)
 
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
