@@ -1,4 +1,6 @@
 LOCAL_PATH := $(call my-dir)
+
+ifeq ($(USE_OSS_SENSORD),true)
 include $(CLEAR_VARS)
 
 LOCAL_INCLUDES += $(LOCAL_PATH)
@@ -64,3 +66,4 @@ LOCAL_SHARED_LIBRARIES += liblog libcutils libc libm
 LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE := sensord
 include $(BUILD_EXECUTABLE)
+endif
