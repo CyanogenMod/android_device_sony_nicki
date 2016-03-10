@@ -194,10 +194,6 @@ PRODUCT_PACKAGES += \
     libtime_genoff \
     com.google.widevine.software.drm
 
-# Sensors
-PRODUCT_PACKAGES += \
-    sensord
-
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
