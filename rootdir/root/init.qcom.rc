@@ -151,7 +151,7 @@ on boot
 
     # Enable adaptive LMK and set vmpressure_file_min
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 40042
 
 # msm specific files that need to be created on /data
 on post-fs-data
