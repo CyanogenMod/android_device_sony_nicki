@@ -227,7 +227,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.lowlatency.rec=false \
     media.aac_51_output_enabled=true \
     ro.qc.sdk.audio.ssr=false \
-    ro.qc.sdk.audio.fluencetype=none \
+    ro.qc.sdk.audio.fluencetype=fluence \
     qcom.hw.aac.encoder=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
