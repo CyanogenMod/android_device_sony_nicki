@@ -86,17 +86,6 @@
         </MediaCodec>
     </Encoders>
     <Decoders>
-        <!-- Audio Hardware  -->
-        <MediaCodec name="OMX.qcom.audio.decoder.wma" type="audio/x-ms-wma" >
-            <Quirk name="requires-global-flush" />
-            <Quirk name="requires-wma-pro-component" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.audio.decoder.wmaLossLess" type="audio/x-ms-wma" >
-            <Quirk name="requires-global-flush" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.audio.decoder.wma10Pro" type="audio/x-ms-wma" >
-            <Quirk name="requires-global-flush" />
-        </MediaCodec>
         <!-- Video Hardware  -->
         <MediaCodec name="OMX.qcom.video.decoder.vc1" type="video/x-ms-wmv" >
             <Quirk name="requires-allocate-on-input-ports" />
