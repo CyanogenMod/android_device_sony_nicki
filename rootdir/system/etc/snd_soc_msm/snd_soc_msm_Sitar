@@ -3536,28 +3536,36 @@ SectionDevice
 
 EndSection
 
+
 SectionDevice
         Name "Camcorder Tx"
         Comment "Camcorder Tx device"
 
         EnableSequence
-                'SLIM_0_TX Channels':0:One
-                'SLIM TX7 MUX':0:DEC6
-                'DEC6 MUX':0:ADC1
-                'DEC6 Volume':1:72
-                'ADC1 Volume':1:100
-                'MICBIAS1 CAPLESS Switch':1:0
+                'AIF1_CAP Mixer SLIM TX1':1:1
+                'AIF1_CAP Mixer SLIM TX5':1:1
+                'SLIM TX1 MUX':0:DEC1
+                'DEC1 MUX':0:ADC1
+                'SLIM TX5 MUX':0:DEC2
+                'DEC2 MUX':0:ADC3
+                'SLIM_0_TX Channels':0:Two
+                'DEC1 Volume':1:82
+                'ADC1 Volume':1:72
+                'DEC2 Volume':1:82
+                'ADC3 Volume':1:72
         EndSequence
 
         DisableSequence
-                'SLIM TX7 MUX':0:ZERO
-                'DEC6 MUX':0:ZERO
-                'DEC6 Volume':1:60
+                'SLIM TX1 MUX':0:ZERO
+                'DEC1 MUX':0:ZERO
+                'SLIM TX5 MUX':0:ZERO
+                'DEC2 MUX':0:ZERO
                 'ADC1 Volume':1:0
-                'MICBIAS1 CAPLESS Switch':1:1
+                'ADC3 Volume':1:0
         EndSequence
 
-        ACDBID        61:2
+        ACDBID        4:2
+	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
 
@@ -3567,22 +3575,21 @@ SectionDevice
 
         EnableSequence
                 'SLIM_0_TX Channels':0:One
-                'SLIM TX7 MUX':0:DEC6
-                'DEC6 MUX':0:ADC1
-                'DEC6 Volume':1:68
-                'ADC1 Volume':1:66
-                'MICBIAS1 CAPLESS Switch':1:0
+                'SLIM TX1 MUX':0:DEC1
+                'DEC1 MUX':0:ADC1
+                'DEC1 Volume':1:69
+                'ADC1 Volume':1:100
         EndSequence
 
         DisableSequence
-                'SLIM TX7 MUX':0:ZERO
-                'DEC6 MUX':0:ZERO
-                'DEC6 Volume':1:68
+                'SLIM TX1 MUX':0:ZERO
+                'DEC1 MUX':0:ZERO
+                'DEC1 Volume':1:0
                 'ADC1 Volume':1:0
-                'MICBIAS1 CAPLESS Switch':1:1
         EndSequence
 
-        ACDBID        62:2
+        ACDBID        49:2
+        EffectsMixerCTL "SRS TruMedia"
 
 EndSection
 
@@ -3617,12 +3624,16 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX1 MUX':0:DEC1
 		'DEC1 MUX':0:ADC1
+		'DEC1 Volume':1:68
+		'ADC1 Volume':1:100
 	EndSequence
 
 	DisableSequence
 		'AIF1_CAP Mixer SLIM TX1':1:0
 		'SLIM TX1 MUX':0:ZERO
 		'DEC1 MUX':0:ZERO
+		'DEC1 Volume':1:0
+		'ADC1 Volume':1:0
 	EndSequence
 
 	ACDBID	11:2
@@ -3766,6 +3777,36 @@ SectionDevice
 	EndSequence
 
 	ACDBID	41:2
+	EffectsMixerCTL "SRS TruMedia"
+
+EndSection
+
+SectionDevice
+	Name "Handset DMIC Stereo"
+	Comment "Dual MIC Stereo Tx device"
+
+	EnableSequence
+		'AIF1_CAP Mixer SLIM TX1':1:1
+		'AIF1_CAP Mixer SLIM TX5':1:1
+		'SLIM TX1 MUX':0:DEC1
+		'DEC1 MUX':0:ADC1
+		'SLIM TX5 MUX':0:DEC3
+		'DEC3 MUX':0:ADC3
+		'SLIM_0_TX Channels':0:Two
+		'ADC1 Volume':1:100
+		'ADC3 Volume':1:100
+	EndSequence
+
+	DisableSequence
+		'AIF1_CAP Mixer SLIM TX1':1:0
+		'AIF1_CAP Mixer SLIM TX5':1:0
+		'SLIM TX1 MUX':0:ZERO
+		'DEC1 MUX':0:ZERO
+		'SLIM TX5 MUX':0:ZERO
+		'DEC2 MUX':0:ZERO
+	EndSequence
+
+	ACDBID	6:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
