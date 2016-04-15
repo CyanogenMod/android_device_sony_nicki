@@ -85,7 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/root/sbin/wait4tad_static:root/sbin/wait4tad_static \
     $(LOCAL_PATH)/rootdir/root/sbin/tad_static:root/sbin/tad_static
 
 PRODUCT_COPY_FILES += \
