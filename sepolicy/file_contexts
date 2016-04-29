@@ -7,7 +7,7 @@
 /dev/block/platform/msm_sdcc\.1/by-name/modem   u:object_r:modem_device:s0
 
 /sys/class/timed_output/vibrator/level          u:object_r:vibeamp_sysfs:s0
-/sys/devices/platform/mdp.525057/kcal           u:object_r:kcal_sysfs:s0
+/sys/class/graphics/fb0/kcal                    u:object_r:kcal_sysfs:s0
 
 /data/LED_deamon.rd                             u:object_r:led_deamon_data_file:s0
 /data/LED_deamon.wd                             u:object_r:led_deamon_data_file:s0

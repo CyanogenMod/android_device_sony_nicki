@@ -200,11 +200,11 @@ on boot
     chown system system /dev/rmi0
 
     chown root system /sys/class/timed_output/vibrator/level
-    chown root system /sys/devices/platform/mdp.525057/kcal
+    chown root system /sys/class/graphics/fb0/kcal
+    chmod 0664 /sys/class/graphics/fb0/kcal
     chmod 0664 /sys/class/timed_output/vibrator/level
-    chmod 0664 /sys/devices/platform/mdp.525057/kcal
     restorecon /sys/class/timed_output/vibrator/level
-    restorecon /sys/devices/platform/mdp.525057/kcal
+    restorecon /sys/class/graphics/fb0/kcal
 
 on post-fs-data
    mkdir /tombstones/modem 0771 system system

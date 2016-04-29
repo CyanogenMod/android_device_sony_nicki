@@ -34,7 +34,7 @@ import org.cyanogenmod.hardware.util.FileUtils;
  */
 
 public class DisplayColorCalibration {
-    private static final String COLOR_FILE = "/sys/devices/platform/mdp.525057/kcal";
+    private static final String COLOR_FILE = "/sys/class/graphics/fb0/kcal";
 
     /*
      * All HAF classes should export this boolean.
