@@ -254,6 +254,7 @@ service thermald /system/bin/thermald
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    class main
    user root
+   group root readproc
    disabled
 
 service qseecomd /system/bin/qseecomd
