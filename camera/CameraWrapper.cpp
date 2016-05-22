@@ -54,6 +54,8 @@ static char VALUE_SONY_OFF[] = "off";
 static char VALUE_SONY_STILL_HDR[] = "on-still-hdr";
 static char VALUE_SONY_INTELLIGENT_ACTIVE[] = "on-intelligent-active";
 
+static char KEY_QC_SUPPORTED_DENOISE[] = "denoise-values";
+
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -207,6 +209,8 @@ static char *camera_fixup_getparams(int id, const char *settings)
             }
         }
     }
+
+    params.set(KEY_QC_SUPPORTED_DENOISE, VALUE_SONY_OFF);
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
