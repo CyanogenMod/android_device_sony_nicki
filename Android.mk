@@ -17,7 +17,8 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(BOARD_VENDOR_PLATFORM),nicki)
-    include $(call all-subdir-makefiles,$(LOCAL_PATH))
+
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
@@ -40,4 +41,5 @@ ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINKS)
       $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/prima; \
         ln -sf /persist/WCNSS_qcom_wlan_nv.bin \
         $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin)
+
 endif
