@@ -14,22 +14,21 @@
 # limitations under the License.
 #
 
-# Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# Inherit common CM stuff
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Device specific overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Inherit device configurations
-$(call inherit-product, device/sony/nicki/device.mk)
+# Product common configurations
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Device display
-TARGET_SCREEN_HEIGHT := 854
-TARGET_SCREEN_WIDTH := 480
+# Dalvik heap configurations
+$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-# Device identifications
-PRODUCT_DEVICE := nicki
-PRODUCT_NAME := cm_nicki
-PRODUCT_BRAND := Sony
-PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := nicki
+# Device product elements
+include $(LOCAL_PATH)/product/*.mk
+
+# Vendor product configurations
+$(call inherit-product, vendor/sony/nicki/nicki-vendor.mk)
