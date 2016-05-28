@@ -1,9 +1,0 @@
-#
-# system.prop for nicki
-#
-
-rild.libargs=-d /dev/smd0
-
-ro.sf.lcd_density=240
-
-
