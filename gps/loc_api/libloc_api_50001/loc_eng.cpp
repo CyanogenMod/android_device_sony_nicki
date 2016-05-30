@@ -1,4 +1,4 @@
-/* Copyright (c) 2009-2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009-2014, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -749,16 +749,7 @@ void LocEngReportPosition::proc() const {
     }
 }
 void LocEngReportPosition::locallog() const {
-    LOC_LOGV("flags: %d\n  source: %d\n  latitude: %f\n  longitude: %f\n  "
-             "altitude: %f\n  speed: %f\n  bearing: %f\n  accuracy: %f\n  "
-             "timestamp: %lld\n  rawDataSize: %d\n  rawData: %p\n  Session"
-             " status: %d\n Technology mask: %u",
-             mLocation.gpsLocation.flags, mLocation.position_source,
-             mLocation.gpsLocation.latitude, mLocation.gpsLocation.longitude,
-             mLocation.gpsLocation.altitude, mLocation.gpsLocation.speed,
-             mLocation.gpsLocation.bearing, mLocation.gpsLocation.accuracy,
-             mLocation.gpsLocation.timestamp, mLocation.rawDataSize,
-             mLocation.rawData, mStatus, mTechMask);
+    LOC_LOGV("LocEngReportPosition");
 }
 void LocEngReportPosition::log() const {
     locallog();
@@ -799,19 +790,7 @@ void LocEngReportSv::proc() const {
     }
 }
 void LocEngReportSv::locallog() const {
-    LOC_LOGV("num sv: %d\n  ephemeris mask: %dxn  almanac mask: %x\n  "
-             "used in fix mask: %x\n      sv: prn         snr       "
-             "elevation      azimuth",
-             mSvStatus.num_svs, mSvStatus.ephemeris_mask,
-             mSvStatus.almanac_mask, mSvStatus.used_in_fix_mask);
-    for (int i = 0; i < mSvStatus.num_svs && i < GPS_MAX_SVS; i++) {
-        LOC_LOGV("   %d:   %d    %f    %f    %f\n  ",
-                 i,
-                 mSvStatus.sv_list[i].prn,
-                 mSvStatus.sv_list[i].snr,
-                 mSvStatus.sv_list[i].elevation,
-                 mSvStatus.sv_list[i].azimuth);
-    }
+    LOC_LOGV("%s:%d] LocEngReportSv",__func__, __LINE__);
 }
 inline void LocEngReportSv::log() const {
     locallog();
@@ -857,7 +836,9 @@ void LocEngReportNmea::proc() const {
     gettimeofday(&tv, (struct timezone *) NULL);
     int64_t now = tv.tv_sec * 1000LL + tv.tv_usec / 1000;
     CALLBACK_LOG_CALLFLOW("nmea_cb", %d, mLen);
-    locEng->nmea_cb(now, mNmea, mLen);
+
+    if (locEng->nmea_cb != NULL)
+        locEng->nmea_cb(now, mNmea, mLen);
 }
 inline void LocEngReportNmea::locallog() const {
     LOC_LOGV("LocEngReportNmea");
@@ -875,6 +856,7 @@ LocEngReportXtraServer::LocEngReportXtraServer(void* locEng,
     LocMsg(), mLocEng(locEng), mMaxLen(maxlength),
     mServers(new char[3*(mMaxLen+1)])
 {
+    memset(mServers, 0, 3*(mMaxLen+1));
     strlcpy(mServers, url1, mMaxLen);
     strlcpy(&(mServers[mMaxLen+1]), url2, mMaxLen);
     strlcpy(&(mServers[(mMaxLen+1)<<1]), url3, mMaxLen);
@@ -1321,7 +1303,7 @@ struct LocEngAtlOpenSuccess : public LocMsg {
         mStateMachine->onRsrcEvent(RSRC_GRANTED);
     }
     inline void locallog() const {
-        LOC_LOGV("LocEngAtlClosed agps type: %s\n  apn: %s\n"
+        LOC_LOGV("LocEngAtlOpenSuccess agps type: %s\n  apn: %s\n"
                  "  bearer type: %s",
                  loc_get_agps_type_name(mStateMachine->getType()),
                  mAPN,
@@ -2035,9 +2017,9 @@ void loc_eng_agps_init(loc_eng_data_s_type &loc_eng_data, AGpsExtCallbacks* call
                                                       AGPS_TYPE_SUPL,
                                                       false);
 
-        loc_eng_data.adapter->sendMsg(new LocEngDataClientInit(&loc_eng_data));
-
         if (adapter->mAgpsEnabled) {
+            loc_eng_data.adapter->sendMsg(new LocEngDataClientInit(&loc_eng_data));
+
             loc_eng_dmn_conn_loc_api_server_launch(callbacks->create_thread_cb,
                                                    NULL, NULL, &loc_eng_data);
         }
