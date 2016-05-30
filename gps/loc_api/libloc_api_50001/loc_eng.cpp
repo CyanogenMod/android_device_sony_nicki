@@ -1,4 +1,4 @@
-/* Copyright (c) 2009-2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009-2014, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -730,7 +730,10 @@ void LocEngReportPosition::proc() const {
         }
 
         if (locEng->generateNmea &&
-            mLocation.position_source == ULP_LOCATION_IS_FROM_GNSS)
+            mLocation.position_source == ULP_LOCATION_IS_FROM_GNSS &&
+            mTechMask & (LOC_POS_TECH_MASK_SATELLITE |
+                         LOC_POS_TECH_MASK_SENSORS |
+                         LOC_POS_TECH_MASK_HYBRID))
         {
             unsigned char generate_nmea = reported &&
                                           (mStatus != LOC_SESS_FAILURE);
@@ -857,7 +860,9 @@ void LocEngReportNmea::proc() const {
     gettimeofday(&tv, (struct timezone *) NULL);
     int64_t now = tv.tv_sec * 1000LL + tv.tv_usec / 1000;
     CALLBACK_LOG_CALLFLOW("nmea_cb", %d, mLen);
-    locEng->nmea_cb(now, mNmea, mLen);
+
+    if (locEng->nmea_cb != NULL)
+        locEng->nmea_cb(now, mNmea, mLen);
 }
 inline void LocEngReportNmea::locallog() const {
     LOC_LOGV("LocEngReportNmea");
@@ -875,6 +880,7 @@ LocEngReportXtraServer::LocEngReportXtraServer(void* locEng,
     LocMsg(), mLocEng(locEng), mMaxLen(maxlength),
     mServers(new char[3*(mMaxLen+1)])
 {
+    memset(mServers, 0, 3*(mMaxLen+1));
     strlcpy(mServers, url1, mMaxLen);
     strlcpy(&(mServers[mMaxLen+1]), url2, mMaxLen);
     strlcpy(&(mServers[(mMaxLen+1)<<1]), url3, mMaxLen);
@@ -1321,7 +1327,7 @@ struct LocEngAtlOpenSuccess : public LocMsg {
         mStateMachine->onRsrcEvent(RSRC_GRANTED);
     }
     inline void locallog() const {
-        LOC_LOGV("LocEngAtlClosed agps type: %s\n  apn: %s\n"
+        LOC_LOGV("LocEngAtlOpenSuccess agps type: %s\n  apn: %s\n"
                  "  bearer type: %s",
                  loc_get_agps_type_name(mStateMachine->getType()),
                  mAPN,
@@ -2035,9 +2041,9 @@ void loc_eng_agps_init(loc_eng_data_s_type &loc_eng_data, AGpsExtCallbacks* call
                                                       AGPS_TYPE_SUPL,
                                                       false);
 
-        loc_eng_data.adapter->sendMsg(new LocEngDataClientInit(&loc_eng_data));
-
         if (adapter->mAgpsEnabled) {
+            loc_eng_data.adapter->sendMsg(new LocEngDataClientInit(&loc_eng_data));
+
             loc_eng_dmn_conn_loc_api_server_launch(callbacks->create_thread_cb,
                                                    NULL, NULL, &loc_eng_data);
         }

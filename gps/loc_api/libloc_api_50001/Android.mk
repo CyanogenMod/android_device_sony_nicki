@@ -74,8 +74,7 @@ LOCAL_SHARED_LIBRARIES := \
     libloc_eng \
     libloc_core \
     libgps.utils \
-    libdl \
-    libandroid_runtime
+    libdl
 
 LOCAL_SRC_FILES += \
     loc.cpp \
@@ -95,7 +94,7 @@ LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/libloc_core
 
 LOCAL_PRELINK_MODULE := false
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_MODULE_RELATIVE_PATH := hw
 
 include $(BUILD_SHARED_LIBRARY)
 
