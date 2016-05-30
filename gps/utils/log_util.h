@@ -118,15 +118,15 @@ else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGV("V/" __VA_ARGS__); }
 
 #else /* DEBUG_DMN_LOC_API */
 
-#define LOC_LOGE(...) ALOGE("E/"__VA_ARGS__)
+#define LOC_LOGE(...) ALOGE("E/" __VA_ARGS__)
 
-#define LOC_LOGW(...) ALOGW("W/"__VA_ARGS__)
+#define LOC_LOGW(...) ALOGW("W/" __VA_ARGS__)
 
-#define LOC_LOGI(...) ALOGI("I/"__VA_ARGS__)
+#define LOC_LOGI(...) ALOGI("I/" __VA_ARGS__)
 
-#define LOC_LOGD(...) ALOGD("D/"__VA_ARGS__)
+#define LOC_LOGD(...) ALOGD("D/" __VA_ARGS__)
 
-#define LOC_LOGV(...) ALOGV("V/"__VA_ARGS__)
+#define LOC_LOGV(...) ALOGV("V/" __VA_ARGS__)
 
 #endif /* DEBUG_DMN_LOC_API */
 
