@@ -200,25 +200,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
+# RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
-    DEVICE_PROVISIONED=1 \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     telephony.lteOnCdmaDevice=0 \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.ril_class=SonyRIL
 
+# Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
-    persist.fuse_sdcard=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    ro.qualcomm.bt.hci_transport=smd \
     persist.hwc.mdpcomp.enable=true \
-    debug.composition.type=dyn \
-    ro.vendor.extension_library=libqti-perfd-client.so
+    debug.composition.type=dyn
 
+# Audio/Video
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.audio.init=complete \
     persist.audio.fluence.mode=endfire \
@@ -230,6 +229,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluence \
     qcom.hw.aac.encoder=true
 
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.bt.hci_transport=smd
+
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so
+
+# GPS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=1 \
     ro.qc.sdk.izat.service_mask=0x5 \
@@ -240,6 +248,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
+# ART
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
 
@@ -247,6 +256,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
 
+# DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
