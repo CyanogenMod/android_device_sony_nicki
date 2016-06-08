@@ -15,8 +15,6 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/sony/nicki/nicki-vendor.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -194,6 +192,16 @@ PRODUCT_PACKAGES += \
     libtime_genoff \
     com.google.widevine.software.drm
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapgrowthlimit=100m \
+    dalvik.vm.heapsize=174m \
+    dalvik.vm.heaptargetutilization=0.75 \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.dex2oat-swap=false
+
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wlan.driver.ath=0 \
@@ -247,10 +255,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # OpenGL ES 3.0
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
-
-# ART
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-swap=false
 
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
