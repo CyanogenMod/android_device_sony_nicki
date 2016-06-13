@@ -16,8 +16,7 @@
 
 package org.cyanogenmod.hardware;
 
-import java.io.File;
-import org.cyanogenmod.hardware.util.FileUtils;
+import org.cyanogenmod.internal.util.FileUtils;
 
 /*
  * Display RGB intensity calibration (kcal)
@@ -42,7 +41,7 @@ public class DisplayColorCalibration {
      */
 
     public static boolean isSupported() {
-        return new File(COLOR_FILE).exists();
+        return FileUtils.isFileWritable(COLOR_FILE);
     }
 
     /*
