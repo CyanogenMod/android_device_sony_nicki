@@ -28,9 +28,6 @@ TARGET_BOOTLOADER_BOARD_NAME := qcom
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-# Use dlmalloc instead of jemalloc for mallocs
-MALLOC_IMPL := dlmalloc
-
 TARGET_SPECIFIC_HEADER_PATH += device/sony/nicki/include
 
 # OTA Assert
