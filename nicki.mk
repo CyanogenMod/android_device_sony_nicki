@@ -32,7 +32,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
@@ -108,9 +107,7 @@ PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 PRODUCT_PACKAGES += \
-    charger \
-    charger_res_images \
-    libtinyxml
+    charger_res_images
 
 PRODUCT_PACKAGES += \
     libnfc \
@@ -131,7 +128,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     gralloc.msm8960 \
     copybit.msm8960 \
-    libqdMetaData \
     memtrack.msm8960
 
 # Camera
@@ -184,10 +180,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsony
 
-# healthd libaray expanded for mode charger
-PRODUCT_PACKAGES += \
-    libhealthd.msm
-
 PRODUCT_PACKAGES += \
     libtime_genoff \
     com.google.widevine.software.drm
@@ -209,7 +201,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.cabl=0 \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
     persist.hwc.mdpcomp.enable=true \
