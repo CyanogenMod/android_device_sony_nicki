@@ -10,6 +10,9 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler
 
+PRODUCT_PACKAGES += \
+    libqcomvoiceprocessing
+
 # Audio tools
 PRODUCT_PACKAGES += \
     tinymix
