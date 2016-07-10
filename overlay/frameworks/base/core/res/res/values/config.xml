@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2013, The Android Open Source Project
+** Copyright 2009, The Android Open Source Project
+** Copyright 2015-2016, The CyanogenMod Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -17,38 +18,17 @@
 */
 -->
 
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-         autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
-
-    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
-    <bool name="config_cellBroadcastAppLinks">true</bool>
-
-    <!-- Boolean indicating if restoring network selection should be skipped -->
-    <!-- The restoring is handled by modem if it is true-->
-    <bool translatable="false" name="skip_restoring_network_selection">true</bool>
-
-    <!-- The RadioAccessFamilies supported by the device.
-         Empty is viewed as "all".  Only used on devices which
-         don't support RIL_REQUEST_GET_RADIO_CAPABILITY
-         format is UMTS|LTE|... -->
-    <string translatable="false" name="config_radio_access_family">GSM | WCDMA</string>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         USB interfaces.  If the device doesn't want to support tething over USB this should
-         be empty.  An example would be "usb.*" -->
-    <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"usb\\d"</item>
-        <item>"rndis\\d"</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
-         should be empty.  An example would be "softap.*" -->
-    <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>"wlan0"</item>
-    </string-array>
+    <!-- Device configuration setting the minfree tunable in the lowmemorykiller in the kernel.
+         A high value will cause the lowmemorykiller to fire earlier, keeping more memory
+         in the file cache and preventing I/O thrashing, but allowing fewer processes to
+         stay in memory.  A low value will keep more processes in memory but may cause
+         thrashing if set too low.  Overrides the default value chosen by ActivityManager
+         based on screen size and total memory for the largest lowmemorykiller bucket, and
+         scaled proportionally to the smaller buckets.  -1 keeps the default. -->
+    <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">122880</integer>
 
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
@@ -84,11 +64,26 @@
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         USB interfaces.  If the device doesn't want to support tethering over USB this should
+         be empty.  An example would be "usb.*" -->
+    <string-array translatable="false" name="config_tether_usb_regexs">
+       <item>"usb\\d"</item>
+       <item>"rndis\\d"</item>
+    </string-array>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+         should be empty.  An example would be "softap.*" -->
+    <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>"wlan0"</item>
+    </string-array>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
-            <item>"bnep\\d"</item>
-            <item>"bt-pan"</item>
+        <item>"bnep\\d"</item>
+        <item>"bt-pan"</item>
     </string-array>
 
     <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
@@ -105,30 +100,21 @@
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
 
-    <!-- Boolean indicating whether the wifi chipset has background scan support -->
+    <!-- Boolean indicating whether the wifi chipset supports background scanning mechanism.
+         This mechanism allows the host to remain in suspend state and the dongle to actively
+         scan and wake the host when a configured SSID is detected by the dongle. This chipset
+         capability can provide power savings when wifi needs to be always kept on. -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
-    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
-    on the headphone/microphone jack. When false use the older uevent framework -->
-    <bool name="config_useDevInputEventForAudioJack">true</bool>
+    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Is the device capable of hot swapping an ICC Card -->
-    <bool name="config_hotswapCapable">true</bool>
-
-    <!-- If this is true, the screen will come on when you plug/unplug usb/power/whatever. -->
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
-    <!-- If this is true, the IME will be shown at screen on for keyguard password view
-    <bool name="kg_show_ime_at_screen_on">false</bool> -->
-
-    <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
-
-    <!-- Do not translate!
-         The URL that should be sent in an x-wap-profile header with an HTTP request.
-         If the URL contains a '%s' format string then that substring will be replaced
-         with the value of Build.MODEL. -->
-    <string name="config_useragentprofile_url">http://uaprof.sonymobile.com/%sR401.xml</string>
+    <!-- Indicate whether the SD card is accessible without removing the battery. -->
+    <bool name="config_batterySdCardAccessibility">true</bool>
 
     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">100</integer>
@@ -150,32 +136,48 @@
          Used to decide if the user can change the colors -->
     <bool name="config_multiColorBatteryLed">true</bool>
 
-    <bool name="config_syncstorageengine_masterSyncAutomatically">false</bool>
+    <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
+    <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
-    <!-- National language single shift tables to enable for SMS encoding.
-         Decoding is always enabled. 3GPP TS 23.038 states that this feature
-         should not be enabled until a formal request is issued by the relevant
-         national regulatory body. Array elements are codes from the table above.
-         Example 1: devices sold in Turkey must include table 1 to conform with
-           By-Law Number 27230. (http://www.btk.gov.tr/eng/pdf/2009/BY-LAW_SMS.pdf)
-         Example 2: devices sold in India should include tables 4 through 13
-           to enable use of the new Release 9 tables for Indic languages. -->
-    <integer-array name="config_sms_enabled_single_shift_tables">
-        <item>1</item>
-    </integer-array>
+    <!-- Is the device capable of hot swapping an UICC Card -->
+    <bool name="config_hotswapCapable">true</bool>
+
+    <!-- Hardware keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">96</integer>
+
+    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareWakeKeys">96</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
-        The user is forbidden from setting the brightness below this level. -->
+         The user is forbidden from setting the brightness below this level. -->
     <integer name="config_screenBrightnessSettingMinimum">20</integer>
 
     <!-- Screen brightness used to dim the screen when the user activity
-        timeout expires.  May be less than the minimum allowed brightness setting
-        that can be set by the user. -->
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
     <integer name="config_screenBrightnessDim">20</integer>
-
-    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
-         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
-    <bool name="config_automatic_brightness_available">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
@@ -223,10 +225,52 @@
         <item>255</item>
     </integer-array>
 
+    <!-- Boolean indicating if restoring network selection should be skipped -->
+    <!-- The restoring is handled by modem if it is true-->
+    <bool translatable="false" name="skip_restoring_network_selection">true</bool>
+
+    <!-- The URL that should be sent in an x-wap-profile header with an HTTP request,
+         as defined in the Open Mobile Alliance User Agent Profile specification
+         OMA-TS-UAProf-V2_0-20060206-A Section 8.1.1.1. If the URL contains a '%s'
+         format string then that substring will be replaced with the value of
+         Build.MODEL. The format string shall not be escaped. -->
+    <string name="config_useragentprofile_url">http://uaprof.sonymobile.com/%sR401.xml</string>
+
+    <!-- National language single shift tables to enable for SMS encoding.
+         Decoding is always enabled. 3GPP TS 23.038 states that this feature
+         should not be enabled until a formal request is issued by the relevant
+         national regulatory body. Array elements are codes from the table above.
+         Example 1: devices sold in Turkey must include table 1 to conform with
+           By-Law Number 27230. (http://www.btk.gov.tr/eng/pdf/2009/BY-LAW_SMS.pdf)
+         Example 2: devices sold in India should include tables 4 through 13
+           to enable use of the new Release 9 tables for Indic languages. -->
+    <integer-array name="config_sms_enabled_single_shift_tables">
+        <item>1</item>
+    </integer-array>
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
+    <bool name="config_cellBroadcastAppLinks">true</bool>
+
+    <!-- The default value if the SyncStorageEngine should sync automatically or not -->
+    <bool name="config_syncstorageengine_masterSyncAutomatically">false</bool>
+
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+    <!-- Whether UI for multi user should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
     <!-- Safe headphone volume index. When music stream volume is below this index
     the SPL on headphone output is compliant to EN 60950 requirements for portable music
     players. -->
     <integer name="config_safe_media_volume_index">8</integer>
+
+    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
+         on the headphone/microphone jack. When false use the older uevent framework. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
 
     <!-- Set to true if the wifi display supports compositing content stored
          in gralloc protected buffers.  For this to be true, there must exist
@@ -242,56 +286,16 @@
     -->
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
 
-    <!-- SD card is hot-pluggable on this device -->
-     <bool name="config_batterySdCardAccessibility">true</bool>
+    <!-- The RadioAccessFamilies supported by the device.
+         Empty is viewed as "all".  Only used on devices which
+         don't support RIL_REQUEST_GET_RADIO_CAPABILITY
+         format is UMTS|LTE|... -->
+    <string translatable="false" name="config_radio_access_family">GSM | WCDMA</string>
 
-    <!--  Maximum number of supported users -->
-    <integer name="config_multiuserMaximumUsers">4</integer>
-
-    <!-- Whether UI for multi user should be shown -->
-    <bool name="config_enableMultiUserUI">true</bool>
-
-    <!-- Hardware keys present on the device, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-            32 - Camera
-            64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareKeys">96</integer>
-
-    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-            32 - Camera
-            64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">96</integer>
+    <!-- Show battery fully charged notification -->
+    <bool name="config_showBatteryFullyChargedNotification">true</bool>
 
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
     <bool name="config_useSystemClockforRotationSensor">true</bool>
-
-    <!-- Device configuration setting the minfree tunable in the lowmemorykiller in the kernel.
-         A high value will cause the lowmemorykiller to fire earlier, keeping more memory
-         in the file cache and preventing I/O thrashing, but allowing fewer processes to
-         stay in memory.  A low value will keep more processes in memory but may cause
-         thrashing if set too low.  Overrides the default value chosen by ActivityManager
-         based on screen size and total memory for the largest lowmemorykiller bucket, and
-         scaled proportionally to the smaller buckets.  -1 keeps the default. -->
-    <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">122880</integer>
-
-    <!-- Show battery fully charged notification -->
-    <bool name="config_showBatteryFullyChargedNotification">true</bool>
 </resources>

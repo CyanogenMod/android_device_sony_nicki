@@ -23,5 +23,4 @@
 
     <!-- Restart preview for front camera onPictureTaken -->
     <bool name="front_camera_restart_preview_onPictureTaken">true</bool>
-
 </resources>
