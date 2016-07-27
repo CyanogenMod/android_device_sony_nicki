@@ -115,8 +115,10 @@ lib/libdrmtime.so
 lib/libdrmdiag.so
 
 # Time services
+-app/TimeService/TimeService.apk
 bin/time_daemon
--vendor/lib/libtime_genoff.so
+vendor/lib/libtime_genoff.so
+vendor/lib/libTimeService.so
 
 # VIDC firmware
 etc/firmware/vidc_1080p.fw
