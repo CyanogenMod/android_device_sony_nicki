@@ -61,6 +61,7 @@ bin/ta_qmi_service
 bin/updatemiscta
 lib/libmiscta.so
 lib/libta.so
+-sbin/tad_static:rootfs
 
 # Thermal
 bin/thermald
