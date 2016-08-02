@@ -114,6 +114,9 @@ lib/libdrmfs.so
 lib/libdrmtime.so
 lib/libdrmdiag.so
 
+# UI
+vendor/lib/libuiblur.so
+
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
