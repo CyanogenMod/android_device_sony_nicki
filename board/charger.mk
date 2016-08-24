@@ -1,3 +1,3 @@
 # Healthd
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+ACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
