@@ -8,18 +8,40 @@ uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk.cpio
 $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 	zcat $< > $@
 
+recovery_uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk-recovery.cpio
+recovery_uncompressed_device_ramdisk := $(PRODUCT_OUT)/ramdisk-recovery-device.cpio
+$(recovery_uncompressed_device_ramdisk): $(MKBOOTFS) \
+		$(INTERNAL_RECOVERYIMAGE_FILES) \
+		$(recovery_initrc) $(recovery_sepolicy) $(recovery_kernel) \
+		$(INSTALLED_2NDBOOTLOADER_TARGET) \
+		$(recovery_build_prop) $(recovery_resource_deps) $(recovery_root_deps) \
+		$(recovery_fstab) \
+		$(RECOVERY_INSTALL_OTA_KEYS) \
+		$(INTERNAL_BOOTIMAGE_FILES)
+	$(call build-recoveryramdisk)
+	@echo "----- Making uncompressed recovery ramdisk ------"
+	$(hide) cp $(DEVICE_LOGORLE) $(TARGET_RECOVERY_ROOT_OUT)/
+	$(hide) $(MKBOOTFS) $(TARGET_RECOVERY_ROOT_OUT) > $@
+	$(hide) rm -f $(recovery_uncompressed_ramdisk)
+	$(hide) cp $(recovery_uncompressed_device_ramdisk) $(recovery_uncompressed_ramdisk)
+
+recovery_ramdisk := $(PRODUCT_OUT)/ramdisk-recovery.img
+$(recovery_ramdisk): $(MINIGZIP) \
+		$(recovery_uncompressed_device_ramdisk)
+	@echo "----- Making compressed recovery ramdisk ------"
+	$(hide) $(MINIGZIP) < $(recovery_uncompressed_ramdisk) > $@
+
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img
 $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel \
 		$(uncompressed_ramdisk) \
-		$(recovery_uncompressed_ramdisk) \
+		$(recovery_uncompressed_device_ramdisk) \
 		$(INSTALLED_RAMDISK_TARGET) \
 		$(INITSONY) \
 		$(PRODUCT_OUT)/utilities/toybox \
 		$(PRODUCT_OUT)/utilities/keycheck \
 		$(MKBOOTIMG) $(MINIGZIP) \
 		$(INTERNAL_BOOTIMAGE_FILES)
-
-	$(call pretty,"Boot image: $@")
+	@echo "----- Making boot image ------"
 	$(hide) rm -fr $(PRODUCT_OUT)/combinedroot
 	$(hide) cp -a $(PRODUCT_OUT)/root $(PRODUCT_OUT)/combinedroot
 	$(hide) mkdir -p $(PRODUCT_OUT)/combinedroot/sbin
@@ -38,11 +60,13 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel \
 	$(hide) cat $(PRODUCT_OUT)/combinedroot.cpio | gzip > $(PRODUCT_OUT)/combinedroot.fs
 	$(hide) $(MKBOOTIMG) --kernel $(PRODUCT_OUT)/kernel --ramdisk $(PRODUCT_OUT)/combinedroot.fs --cmdline "$(BOARD_KERNEL_CMDLINE)" --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) $(BOARD_MKBOOTIMG_ARGS) -o $(INSTALLED_BOOTIMAGE_TARGET)
 
+	$(call pretty,"Made boot image: $@")
+
 INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
 		$(recovery_kernel)
 	$(call build-recoveryimage-target, $@)
-	@echo ----- Making recovery image ------
+	@echo "----- Making recovery image ------"
 	$(hide) $(MKBOOTIMG) --kernel $(PRODUCT_OUT)/kernel --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline "$(BOARD_KERNEL_CMDLINE)" --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) $(BOARD_MKBOOTIMG_ARGS) -o $(INSTALLED_RECOVERYIMAGE_TARGET)
-	@echo ----- Made recovery image -------- $@
+	$(call pretty,"Made recovery image: $@")
