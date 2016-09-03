@@ -2,6 +2,12 @@
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
+# Telephony packages
+PRODUCT_PACKAGES += \
+    telephony-ext
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # RIL properties
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libargs=-d[SPACE]/dev/smd0 \
