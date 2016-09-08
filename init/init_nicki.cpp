@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -75,7 +76,7 @@ void ds_properties()
 
 void vendor_load_properties()
 {
-    char device[PROP_VALUE_MAX];
+    std::string device;
     int rc;
     static char modelnumber[BUF_SIZE];
 
@@ -103,6 +104,6 @@ void vendor_load_properties()
         property_set("ro.build.fingerprint", "Sony/C2004/C2004:4.3/15.5.A.1.5/eng.user.20140430.172301:user/release-keys");
     };
 
-    property_get("ro.product.device", device);
-    ERROR("setting build properties for %s device\n", device);
+    device = property_get("ro.product.device");
+    ERROR("setting build properties for %s device\n", device.c_str());
 }
