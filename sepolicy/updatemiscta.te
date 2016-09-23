@@ -10,3 +10,5 @@ allow updatemiscta updatemiscta_prop:property_service set;
 
 allow updatemiscta init:unix_stream_socket { connectto };
 allow updatemiscta tad_static:unix_stream_socket  { connectto };
+
+set_prop(updatemiscta, updatemiscta_prop)

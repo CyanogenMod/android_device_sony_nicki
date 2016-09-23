@@ -1,0 +1,6 @@
+allow cameraserver camera_socket:sock_file write;
+allow cameraserver mpctl_socket:dir search;
+allow cameraserver mpctl_socket:sock_file write;
+allow cameraserver mpdecision:unix_stream_socket connectto;
+allow cameraserver sysfs:dir { read open };
+allow cameraserver sysfs:file r_file_perms;
