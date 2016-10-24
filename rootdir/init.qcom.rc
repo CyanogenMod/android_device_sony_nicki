@@ -205,11 +205,12 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on property:vold.decrypt=trigger_restart_framework
+    start qcom-c_main-sh
     start config_bt_addr
     start wcnss-service
 
 service qcom-c_main-sh /system/bin/sh /init.class_main.sh
-    class late_start
+    class main
     user root
     oneshot
 
