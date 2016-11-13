@@ -564,10 +564,10 @@
 
     <path name="camcorder-mic">
         <path name="dmic" />
-        <ctl name="DEC1 Volume" value="82" />
-        <ctl name="ADC1 Volume" value="2" />
-        <ctl name="DEC2 Volume" value="82" />
-        <ctl name="ADC3 Volume" value="2" />
+        <ctl name="DEC1 Volume" value="95" />
+        <ctl name="ADC1 Volume" value="3" />
+        <ctl name="DEC2 Volume" value="95" />
+        <ctl name="ADC3 Volume" value="3" />
     </path>
 
     <path name="hdmi-tx">
