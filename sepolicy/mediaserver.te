@@ -1,1 +1,2 @@
 allow mediaserver socket_device:sock_file write;
+allow mediaserver audio_device:chr_file rw_file_perms;
