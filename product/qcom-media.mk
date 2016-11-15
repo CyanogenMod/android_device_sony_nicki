@@ -24,4 +24,6 @@ PRODUCT_PACKAGES += \
 
 # DRM properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    drm.service.enabled=true
+    drm.service.enabled=true \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
