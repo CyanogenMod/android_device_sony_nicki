@@ -10,3 +10,7 @@ PRODUCT_PACKAGES += \
     libnfc_jni \
     Nfc \
     Tag
+
+# NFC FW
+PRODUCT_PACKAGES += \
+    libpn544_fw

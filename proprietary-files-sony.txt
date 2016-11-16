@@ -49,7 +49,6 @@ lib/libimage-jpeg-enc-omx-comp.so
 
 # NFC
 lib/hw/nfc.msm8960.so
-vendor/firmware/libpn544_fw.so
 
 # Sensors
 bin/sensord
